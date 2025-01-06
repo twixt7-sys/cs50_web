@@ -1,0 +1,36 @@
+$header-element-size: 30px;
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: #202124;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+
+    #h0 {
+        display: inline-block;
+        flex-grow: 1;
+        .header-element{
+            background-color: #171718;
+            float: right;
+            height: $header-element-size;
+            width: $header-element-size;
+            margin: 2px;
+        }
+    }
+}
+
+#upper-body {
+    background-color: #202124;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #img-container {
+        height: 100%;
+        margin-top: auto;
+    }
+}
