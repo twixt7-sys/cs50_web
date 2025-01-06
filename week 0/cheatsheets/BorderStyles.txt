@@ -1,0 +1,11 @@
+Border Styles:
+    border: 1px solid black; (Solid border)
+    border: 1px dotted black; (Dotted border)
+    border: 1px dashed black; (Dashed border)
+    border: 1px double black; (Double border)
+    border: 1px groove black; (Groove border)
+    border: 1px ridge black; (Ridge border)
+    border: 1px inset black; (Inset border)
+    border: 1px outset black; (Outset border)
+    border: 1px none; (No border)
+    border: 1px hidden; (Hidden border)

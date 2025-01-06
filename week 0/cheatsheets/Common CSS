@@ -1,0 +1,17 @@
+Common CSS Properties
+
+Text properties:
+- color: the color of text
+- text-align: where elements are placed on the page
+- font-family: type of font for text on page
+- font-size: in pixels
+
+Background properties:
+- background-color: can be set to any color
+
+Box model properties:
+- width: in pixels or percent of a page
+- height: in pixels or percent of a page
+- padding: how much space should be left inside an element
+- margin: how much space should be left outside an element
+- border: size type (solid, dashed, etc) color

@@ -1,0 +1,16 @@
+/*   google heading styles   */
+
+.Ne6nSd {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+}
+
+.LX3sZb {
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.Ne6nSd iframe {
+    color-scheme: light;
+}

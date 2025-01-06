@@ -1,0 +1,43 @@
+.c93Gbe {
+    background: #171717;
+}
+
+.uU7dJb {
+    padding: 15px 30px;
+    border-bottom: 1px solid var(--gS5jXb);
+    font-size: 15px;
+    color: var(--YLNNHc);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Wymece {
+    justify-content: flex-end;
+}
+
+.SSwjIe {
+    padding: 0 20px;
+}
+
+.KxwPGc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1200px) {
+    .KxwPGc {
+        justify-content: space-evenly;
+    }
+}
+
+.pHiOh {
+    display: block;
+    padding: 15px;
+    white-space: nowrap;
+}
+
+.pHiOh, a.pHiOh {
+    color: var(--YLNNHc);
+}

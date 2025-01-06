@@ -1,0 +1,28 @@
+$color1: teal;
+$color2: aquamarine;
+$text-color: rgb(52, 52, 52);
+
+.parent {
+    background-color: $color1;
+    display: grid;
+}
+
+* {
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: large;
+    align-items: center;
+}
+
+.head {
+    color: $text-color;
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    background-color: $color2;
+    text-align: center;
+}
