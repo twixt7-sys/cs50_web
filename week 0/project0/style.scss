@@ -1,4 +1,5 @@
 $header-element-size: 30px;
+$font-color: rgb(232, 234, 237);
 
 html, body {
     font-family: Arial, Helvetica, sans-serif;
@@ -39,6 +40,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;                                                    /* Center contents vertically */
+    margin-top: 198px;
+    max-height: 92px;
     #img-container {
         margin-top: auto;
     }
@@ -46,6 +49,7 @@ body {
 
 .button {
     background-color: #33363a;
+    color: $font-color;
     padding: 0px 16px;
     border: none;
     margin: 4px 4px 11px 11px;
@@ -97,10 +101,73 @@ body {
 }
 
 #lower-body {
-    flex-grow: 1;
-    color: #60656b;
-    font-size: small;
+    color: rgb(191, 191, 191);
+    font-size: smaller;
     display: flex;
     align-items: center;                                                        /* Optional: Adjust alignment */
     justify-content: center;                                                    /* Optional: Adjust alignment */
+    flex-grow: 1;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    & > a{
+        margin: 0 3px;
+        color: rgb(153, 195, 255);
+    }
+}
+
+@mixin lower-footer-parent {
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#footer {
+    background-color: rgb(23, 23, 23);
+    color: rgb(232, 232, 232);
+    font-size: small;
+
+    #upper-footer {
+        padding: 15px 30px;
+    }
+
+    #lower-footer {
+        @include lower-footer-parent;
+
+        #footer-left,
+        #footer-right {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            font-size: smaller;
+
+            > a, > span {
+                color: rgb(232, 232, 232);
+                text-decoration: none;
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            #footer-left {
+                justify-content: flex-start;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            #footer-right {
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+
+#wrapper {
+    flex: 1; // Fills the remaining space between header and footer
+    display: flex;
+    flex-direction: column;
+}
+
+#footers {
+    
 }
