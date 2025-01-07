@@ -1,8 +1,16 @@
 $header-element-size: 30px;
 
 html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
     margin: 0;
     padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #202124;
 }
 
 #header {
@@ -10,27 +18,89 @@ html, body {
     display: flex;
     align-items: center;
     padding: 6px;
-
+    
     #h0 {
-        display: inline-block;
         flex-grow: 1;
-        .header-element{
-            background-color: #171718;
-            float: right;
-            height: $header-element-size;
-            width: $header-element-size;
-            margin: 2px;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.header-element {
+    background-color: #171718;
+    height: $header-element-size;
+    width: $header-element-size;
+    margin: 2px;
+}
+
+
+#upper-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;                                                    /* Center contents vertically */
+    #img-container {
+        margin-top: auto;
+    }
+}
+
+.button {
+    background-color: #33363a;
+    padding: 0px 16px;
+    border: none;
+    margin: 4px 4px 11px 11px;
+    height: 36px;
+    border-radius: 4px;
+
+    &:hover {
+        border-color: #60656b;
+        border-width: 1px;
+        border-style: solid;
+    }
+}
+
+#search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 6px;
+
+    #form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #search-bar {
+            background-color: rgb(77, 81, 86);
+            width: 584px;
+            height: 44px;
+            border-radius: 24px;
+            border: none;
+            padding: 0 16px;
+            font-size: 16px;
+            color: white;
+
+            &:hover, &:focus {
+                background-color: #60656b;
+                outline: none;
+            }
+        }
+
+        #button-container {
+            padding-top: 18px;
+
+            #google-search-button, #lucky-button {
+                @extend .button;
+            }
         }
     }
 }
 
-#upper-body {
-    background-color: #202124;
+#lower-body {
+    flex-grow: 1;
+    color: #60656b;
+    font-size: small;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    #img-container {
-        height: 100%;
-        margin-top: auto;
-    }
+    align-items: center;                                                        /* Optional: Adjust alignment */
+    justify-content: center;                                                    /* Optional: Adjust alignment */
 }
