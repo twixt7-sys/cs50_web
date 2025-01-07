@@ -33,13 +33,12 @@ body {
     margin: 2px;
 }
 
-
 #upper-body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;                                                    /* Center contents vertically */
+    justify-content: center; /* Center contents vertically */
     margin-top: 198px;
     max-height: 92px;
     #img-container {
@@ -104,12 +103,12 @@ body {
     color: rgb(191, 191, 191);
     font-size: smaller;
     display: flex;
-    align-items: center;                                                        /* Optional: Adjust alignment */
-    justify-content: center;                                                    /* Optional: Adjust alignment */
+    align-items: center; /* Optional: Adjust alignment */
+    justify-content: center; /* Optional: Adjust alignment */
     flex-grow: 1;
     flex-shrink: 0;
     box-sizing: border-box;
-    & > a{
+    & > a {
         margin: 0 3px;
         color: rgb(153, 195, 255);
     }
@@ -132,31 +131,46 @@ body {
     }
 
     #lower-footer {
-        @include lower-footer-parent;
+        display: flex;
+        justify-content: space-between; // Ensure left and right stick to sides by default
+        flex-wrap: wrap;
+        padding: 10px 20px;
 
         #footer-left,
         #footer-right {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
             font-size: smaller;
 
             > a, > span {
                 color: rgb(232, 232, 232);
                 text-decoration: none;
-                padding: 15px;
+                padding: 10px;
             }
         }
 
         @media screen and (max-width: 800px) {
-            #footer-left {
-                justify-content: flex-start;
+            flex-direction: column; // Stack elements vertically
+            align-items: center; // Center children horizontally
+            text-align: center;
+
+            #footer-left,
+            #footer-right {
+                justify-content: center; // Center links in narrow view
+                padding: 10px 0; // Optional spacing for visual clarity
             }
         }
 
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 801px) {
+            flex-direction: row; // Ensure horizontal layout
+            align-items: flex-start; // Align top in wide view
+
+            #footer-left {
+                justify-content: flex-start; // Stick to the left
+            }
+
             #footer-right {
-                justify-content: flex-end;
+                justify-content: flex-end; // Stick to the right
             }
         }
     }
@@ -166,8 +180,4 @@ body {
     flex: 1; // Fills the remaining space between header and footer
     display: flex;
     flex-direction: column;
-}
-
-#footers {
-    
 }
