@@ -38,7 +38,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Center contents vertically */
+    justify-content: center;
     margin-top: 198px;
     max-height: 92px;
     #img-container {
@@ -75,13 +75,15 @@ body {
 
         #search-bar {
             background-color: rgb(77, 81, 86);
-            width: 584px;
-            height: 44px;
+            max-width: 584px;
+            min-height: 44px;
+            position: relative;
             border-radius: 24px;
             border: none;
             padding: 0 16px;
             font-size: 16px;
             color: white;
+            width: 582.184px;
 
             &:hover, &:focus {
                 background-color: #60656b;
@@ -103,14 +105,15 @@ body {
     color: rgb(191, 191, 191);
     font-size: smaller;
     display: flex;
-    align-items: center; /* Optional: Adjust alignment */
-    justify-content: center; /* Optional: Adjust alignment */
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
     flex-shrink: 0;
     box-sizing: border-box;
     & > a {
         margin: 0 3px;
         color: rgb(153, 195, 255);
+        text-decoration: none;
     }
 }
 
@@ -122,25 +125,28 @@ body {
 }
 
 #footer {
-    background-color: rgb(23, 23, 23);
     color: rgb(232, 232, 232);
-    font-size: small;
+    
 
     #upper-footer {
+        background-color: rgb(23, 23, 23);
         padding: 15px 30px;
+        font-size: medium;
     }
 
     #lower-footer {
+        background-color: rgb(23, 23, 23);
         display: flex;
-        justify-content: space-between; // Ensure left and right stick to sides by default
+        justify-content: space-between;
         flex-wrap: wrap;
-        padding: 10px 20px;
+        padding: 8px 20px;
+        margin-top: 2px;
+        font-size: small;
 
-        #footer-left,
-        #footer-right {
+        #footer-left, #footer-right {
             display: flex;
             flex-wrap: wrap;
-            font-size: smaller;
+            font-size: small;
 
             > a, > span {
                 color: rgb(232, 232, 232);
@@ -149,28 +155,16 @@ body {
             }
         }
 
-        @media screen and (max-width: 800px) {
-            flex-direction: column; // Stack elements vertically
-            align-items: center; // Center children horizontally
-            text-align: center;
-
-            #footer-left,
-            #footer-right {
-                justify-content: center; // Center links in narrow view
-                padding: 10px 0; // Optional spacing for visual clarity
-            }
+        @media screen and (max-width: 1050px) {
+            justify-content: space-evenly;
         }
 
-        @media screen and (min-width: 801px) {
-            flex-direction: row; // Ensure horizontal layout
-            align-items: flex-start; // Align top in wide view
-
+        @media screen and (min-width: 1051px) {
             #footer-left {
-                justify-content: flex-start; // Stick to the left
+                justify-content: flex-start;
             }
-
             #footer-right {
-                justify-content: flex-end; // Stick to the right
+                justify-content: flex-end;
             }
         }
     }

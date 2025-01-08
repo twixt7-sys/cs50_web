@@ -35,7 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center contents vertically */
+  justify-content: center;
   margin-top: 198px;
   max-height: 92px;
 }
@@ -71,13 +71,15 @@ body {
 }
 #search-container #form #search-bar {
   background-color: rgb(77, 81, 86);
-  width: 584px;
-  height: 44px;
+  max-width: 584px;
+  min-height: 44px;
+  position: relative;
   border-radius: 24px;
   border: none;
   padding: 0 16px;
   font-size: 16px;
   color: white;
+  width: 582.184px;
 }
 #search-container #form #search-bar:hover, #search-container #form #search-bar:focus {
   background-color: #60656b;
@@ -90,8 +92,8 @@ body {
   color: rgb(191, 191, 191);
   font-size: smaller;
   display: flex;
-  align-items: center; /* Optional: Adjust alignment */
-  justify-content: center; /* Optional: Adjust alignment */
+  align-items: center;
+  justify-content: center;
   flex-grow: 1;
   flex-shrink: 0;
   box-sizing: border-box;
@@ -99,52 +101,42 @@ body {
 #lower-body > a {
   margin: 0 3px;
   color: rgb(153, 195, 255);
+  text-decoration: none;
 }
 
 #footer {
-  background-color: rgb(23, 23, 23);
   color: rgb(232, 232, 232);
-  font-size: small;
 }
 #footer #upper-footer {
+  background-color: rgb(23, 23, 23);
   padding: 15px 30px;
+  font-size: medium;
 }
 #footer #lower-footer {
+  background-color: rgb(23, 23, 23);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 10px 20px;
+  padding: 8px 20px;
+  margin-top: 2px;
+  font-size: small;
 }
-#footer #lower-footer #footer-left,
-#footer #lower-footer #footer-right {
+#footer #lower-footer #footer-left, #footer #lower-footer #footer-right {
   display: flex;
   flex-wrap: wrap;
-  font-size: smaller;
+  font-size: small;
 }
-#footer #lower-footer #footer-left > a, #footer #lower-footer #footer-left > span,
-#footer #lower-footer #footer-right > a,
-#footer #lower-footer #footer-right > span {
+#footer #lower-footer #footer-left > a, #footer #lower-footer #footer-left > span, #footer #lower-footer #footer-right > a, #footer #lower-footer #footer-right > span {
   color: rgb(232, 232, 232);
   text-decoration: none;
   padding: 10px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1050px) {
   #footer #lower-footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  #footer #lower-footer #footer-left,
-  #footer #lower-footer #footer-right {
-    justify-content: center;
-    padding: 10px 0;
+    justify-content: space-evenly;
   }
 }
-@media screen and (min-width: 801px) {
-  #footer #lower-footer {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+@media screen and (min-width: 1051px) {
   #footer #lower-footer #footer-left {
     justify-content: flex-start;
   }
