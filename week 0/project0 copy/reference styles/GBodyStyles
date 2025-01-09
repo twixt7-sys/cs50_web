@@ -1,0 +1,49 @@
+/* google body styles */
+
+.L3eUgb {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.o3j99 {
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.n1xJcf {
+    height: 60px;
+}
+
+.LLD4me {
+    min-height: 150px;
+    height: calc(100% - 560px);
+    max-height: 290px;
+}
+
+.yr19Zb {
+    min-height: 92px;
+}
+
+.ikrT4e {
+    max-height: 160px;
+}
+
+.mwht9d {
+    display: none;
+}
+
+.ADHj4e {
+    padding-top: 0px;
+    padding-bottom: 85px;
+}
+
+.oWyZre {
+    width: 100%;
+    height: 500px;
+    border-width: 0;
+}
+
+.qarstb {
+    flex-grow: 1;
+}

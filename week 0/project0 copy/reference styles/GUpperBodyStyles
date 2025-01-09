@@ -1,0 +1,10 @@
+.LS8OJ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.k1zIA {
+    height: 100%;
+    margin-top: auto;
+}

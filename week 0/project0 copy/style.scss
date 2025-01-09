@@ -1,0 +1,194 @@
+$header-element-size: 30px;
+$font-color: rgb(232, 234, 237);
+$background-color: #202124;
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    pointer-events: none; /* Prevent blocking of canvas mouse events */
+    //background-color: $background-color;
+}
+
+#header {
+    background-color: $background-color;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    
+    #h0 {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.header-element {
+    background-color: #171718;
+    height: $header-element-size;
+    width: $header-element-size;
+    margin: 2px;
+}
+
+#upper-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 198px;
+    max-height: 92px;
+    #img-container {
+        margin-top: auto;
+    }
+}
+
+#wrapper {
+    z-index: 1;
+    pointer-events: none; /* Prevent blocking of canvas mouse events */
+}
+
+#canvas {
+    position: absolute;
+    pointer-events: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.button {
+    background-color: #33363a;
+    color: $font-color;
+    padding: 0px 16px;
+    border: none;
+    margin: 4px 4px 11px 11px;
+    height: 36px;
+    border-radius: 4px;
+
+    &:hover {
+        border-color: #60656b;
+        border-width: 1px;
+        border-style: solid;
+    }
+}
+
+#search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 6px;
+
+    #form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #search-bar {
+            background-color: rgb(77, 81, 86);
+            max-width: 584px;
+            min-height: 44px;
+            position: relative;
+            border-radius: 24px;
+            border: none;
+            padding: 0 16px;
+            font-size: 16px;
+            color: white;
+            width: 582.184px;
+
+            &:hover, &:focus {
+                background-color: #60656b;
+                outline: none;
+            }
+        }
+
+        #button-container {
+            padding-top: 18px;
+
+            #google-search-button, #lucky-button {
+                @extend .button;
+            }
+        }
+    }
+}
+
+#lower-body {
+    color: rgb(191, 191, 191);
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    & > a {
+        margin: 0 3px;
+        color: rgb(153, 195, 255);
+        text-decoration: none;
+    }
+}
+
+@mixin lower-footer-parent {
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#footer {
+    color: rgb(232, 232, 232);
+    
+
+    #upper-footer {
+        background-color: rgb(23, 23, 23);
+        padding: 15px 30px;
+        font-size: medium;
+    }
+
+    #lower-footer {
+        background-color: rgb(23, 23, 23);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 8px 20px;
+        margin-top: 2px;
+        font-size: small;
+
+        #footer-left, #footer-right {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: small;
+
+            > a, > span {
+                color: rgb(232, 232, 232);
+                text-decoration: none;
+                padding: 10px;
+            }
+        }
+
+        @media screen and (max-width: 1050px) {
+            justify-content: space-evenly;
+        }
+
+        @media screen and (min-width: 1051px) {
+            #footer-left {
+                justify-content: flex-start;
+            }
+            #footer-right {
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+
+#wrapper {
+    flex: 1; // Fills the remaining space between header and footer
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,25 @@
+[just start] (time limit: 2 days)
+
+PROJECT DURATION:   2 days
+ESTIMATED TIME:     8 hours
+
+Part I:   FOUNDATION   |   6-7 pomodoros   |   [3.5 hours]
+- emulate google's html structure: 30 mins                                      DONE
+- determine the GET parameters of googles homepage URL: 30 mins                 DONE
+- establish proper html structure: 1 hour                                       
+- [new] start with internal css styles: 30 mins                                 
+- [new] initialize components: 1 hour
+- start with applying simple css styles and build up from that: 30 mins
+- tweak with the layouts to copy google as much as possible: 1 hour
+
+Part II:     DESIGN & FUNCTIONALITY   |   5-6 pomodoros   |   [3 hours]
+- increase design precision: colors, structures: 1 hour
+- apply functional effects such as hovers, etc: 30 mins
+- apply the same fonts and font sizes: 30 mins
+- apply responsiveness: 1 hour
+
+Part III:   SUBMISSION   |   1 pomodoro   |   [1.5 hours]
+- setup for submission: 30 mins
+- comply with requirements: 30 mins
+- verification: 15 mins
+- submission: 15 mins

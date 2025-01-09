@@ -1,0 +1,57 @@
+https://www.google.com/
+
+q=harvard   ->   google search
+
+No GET parameters:
+    https://doodles.google/     ->     I'm feeling lucky button
+    https://mail.google.com/mail/u/0/?ogbl#inbox ->   Gmail
+
+Interactibles:
+    Images:
+        https://www.google.com/imghp?hl=en&authuser=0&ogbl
+            route: imghp
+            params: hl,     authuser,   ogbl
+            values: en,     0,          null
+    Labs: (different link)
+        https://labs.google.com/search?source=hp&authuser=0
+            route: search
+            params: source, authuser
+            values: hp,     0
+    About: (different link)
+        https://about.google/?utm_source=google-PH&utm_medium=referral&utm_campaign=hp-footer&fg=1
+            route: null
+            params: utm_source, utm_medium, utm_campaign,   fg
+            values: google-PH,  referral,   hp-footer,      1
+    Advertising: (different link)
+        https://ads.google.com/intl/en_ph/home/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1
+            route: intl/en_ph/home/
+            params: subid,                              utm_source,     utm_medium,     utm_campaign,       fg
+            values: ww-ww-et-g-awa-a-g_hpafoot1_1!o2,   google.com,     referral,       google_hpafooter,   1
+    Business:
+        https://www.google.com/intl/en_ph/business/
+            route: intl/en_ph/business/
+            params: null
+    How Search Works:
+        https://www.google.com/search/howsearchworks/?fg=1
+            route: search/howsearchworks/
+            params: fg
+            values: 1
+    Privacy: (different link)
+        https://policies.google.com/privacy?hl=en-PH&fg=1
+            route: privacy
+            params: hl,     fg
+            values: en-PH,  1
+    Terms: (different link)
+        https://policies.google.com/terms?hl=en-PH&fg=1
+            route: terms
+            params: hl,     fg
+            values: en-PH,  1
+
+    [to edit]
+    settings:   collapsable
+        https://www.google.com/preferences?hl=en-PH&fg=1   ->   search settings
+        https://www.google.com/advanced_search?hl=en-PH&fg=1   ->   advanced search
+        https://myaccount.google.com/yourdata/search?utm_source=googlemenu&fg=1&pli=1   ->   your data in search
+        https://myactivity.google.com/product/search?utm_source=google&hl=en-PH&fg=1   ->   search history
+        https://support.google.com/websearch/?visit_id=638714892040770168-794874813&hl=en-PH&rd=2#topic=3378866   ->   search help
+    send feedback:   collapsable
