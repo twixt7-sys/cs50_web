@@ -8,7 +8,14 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  pointer-events: none; /* Prevent blocking of canvas mouse events */
+  pointer-events: none;
+}
+
+#wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
 }
 
 #header {
@@ -50,12 +57,12 @@ body {
 
 #canvas {
   position: absolute;
-  pointer-events: auto;
+  pointer-events: none; /* Allows clicks to pass through */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -1; /* Places it behind the other content */
 }
 
 .button, #search-container #form #button-container #google-search-button, #search-container #form #button-container #lucky-button {
@@ -158,12 +165,6 @@ body {
   #footer #lower-footer #footer-right {
     justify-content: flex-end;
   }
-}
-
-#wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 /*# sourceMappingURL=style.css.map */

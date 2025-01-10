@@ -12,8 +12,15 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    pointer-events: none; /* Prevent blocking of canvas mouse events */
     //background-color: $background-color;
+    pointer-events: none;
+}
+
+#wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
 }
 
 #header {
@@ -187,8 +194,4 @@ body {
     }
 }
 
-#wrapper {
-    flex: 1; // Fills the remaining space between header and footer
-    display: flex;
-    flex-direction: column;
-}
+
