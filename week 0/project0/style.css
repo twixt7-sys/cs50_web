@@ -21,7 +21,7 @@ body {
 #header > a {
   text-decoration: none;
   color: rgb(232, 234, 237);
-  padding: 0 12px;
+  padding: 12px 12px;
 }
 
 .header-element {
