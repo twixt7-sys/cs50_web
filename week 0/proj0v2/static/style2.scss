@@ -21,7 +21,7 @@ html, body {
     }
     a {
         text-decoration: none;
-        color: white;
+        color: black;
     }
 }
 
@@ -32,17 +32,32 @@ html, body {
     padding: 0 48px;
 }
 
+#hr {
+    height: 3px;
+    background-color: black;
+}
+
 #middle-body {
     form {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        background-color: $bg-color;
+        color: #969ba1;
+        #left {
+            display: flex;
+            flex-direction: column;
+        }
+        #right {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 
-hr {
+#lower-body {
     background-color: $bg-color;
-    color: black;
-    border: none;
-    height: 1px;
-    width: 100%;
+    display: flex;
 }
+
+
+

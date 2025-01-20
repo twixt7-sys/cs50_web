@@ -19,7 +19,7 @@ html, body {
 }
 #header a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 #upper-body {
@@ -29,17 +29,29 @@ html, body {
   padding: 0 48px;
 }
 
+#hr {
+  height: 3px;
+  background-color: black;
+}
+
 #middle-body form {
+  display: flex;
+  flex-direction: row;
+  background-color: #202124;
+  color: #969ba1;
+}
+#middle-body form #left {
+  display: flex;
+  flex-direction: column;
+}
+#middle-body form #right {
   display: flex;
   flex-direction: column;
 }
 
-hr {
+#lower-body {
   background-color: #202124;
-  color: black;
-  border: none;
-  height: 1px;
-  width: 100%;
+  display: flex;
 }
 
 /*# sourceMappingURL=style2.css.map */
