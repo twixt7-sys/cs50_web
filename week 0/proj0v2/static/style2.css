@@ -1,0 +1,45 @@
+html, body {
+  font-family: Arial, sans-serif;
+  color: #f28b82;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#header {
+  background-color: #202124;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+#header img {
+  max-height: 25px;
+}
+#header a {
+  text-decoration: none;
+  color: white;
+}
+
+#upper-body {
+  background-color: #202124;
+  display: flex;
+  flex-direction: column;
+  padding: 0 48px;
+}
+
+#middle-body form {
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  background-color: #202124;
+  color: black;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=style2.css.map */

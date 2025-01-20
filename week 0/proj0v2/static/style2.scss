@@ -1,0 +1,48 @@
+$bg-color: #202124;
+
+html, body {
+    font-family: Arial, sans-serif;
+    color: #f28b82;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#header {
+    background-color: $bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    img {
+        max-height: 25px;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+#upper-body {
+    background-color: $bg-color;
+    display: flex;
+    flex-direction: column;
+    padding: 0 48px;
+}
+
+#middle-body {
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+hr {
+    background-color: $bg-color;
+    color: black;
+    border: none;
+    height: 1px;
+    width: 100%;
+}
