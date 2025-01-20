@@ -21,35 +21,82 @@ html, body {
     }
     a {
         text-decoration: none;
-        color: black;
+        color: white;
     }
 }
 
 #upper-body {
     background-color: $bg-color;
+    font-size: 24px;
+    font-weight: 500;
     display: flex;
     flex-direction: column;
-    padding: 0 48px;
+    padding: 24px 42px;
 }
 
 #hr {
-    height: 3px;
+    height: 1px;
     background-color: black;
 }
 
 #middle-body {
-    form {
+    padding: 26px;
+    background-color: $bg-color;
+    color: #969ba1;
+    #heading {
         display: flex;
-        flex-direction: row;
-        background-color: $bg-color;
-        color: #969ba1;
-        #left {
+        font-size: medium;
+        margin: 6px;
+        padding: 6px;
+        color: white;
+    }
+
+    form {
+        display: block;
+        flex-direction: column;
+        #wrapper1 {
             display: flex;
-            flex-direction: column;
-        }
-        #right {
-            display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            #left {
+                display: flex;
+                flex-direction: column;
+                label {
+                    display: flex;
+                    font-size: smaller;
+                    margin: 6px;
+                    padding: 6px;
+                }
+            }
+            #right {
+                display: flex;
+                flex-direction: column;
+                input {
+                    width: 500px;
+                    margin: 6px;
+                    padding: 6px;
+                    background-color: #202124;
+                    border: none;
+                    border: 1px solid #5f6368;
+                    outline: none;
+                    &:focus {
+                        border: 1px solid rgb(150, 150, 255);
+                    }
+                }
+                #bottom {
+                    display: flex;
+                    justify-content: flex-end;
+                    #search {
+                        width: 140px;
+                        padding: 8px;
+                        margin: 12px 6px;
+                        border: none;
+                        background-color: rgb(180, 180, 255);
+                        border-radius: 3px;
+                        font-size: small;
+                        font-weight: bold;
+                    }
+                }
+            }
         }
     }
 }

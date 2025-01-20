@@ -12,23 +12,28 @@
         </div>
 
         <div id="upper-body">
-            <h2>Advanced Search</h2>
-            <hr>
+            <label>Advanced Search</label>
         </div>
         <div id="hr"></div>
         <div id="middle-body">
+            <label id="heading">Find pages with... </label>
             <form id="form" action="https://www.google.com/search?hl=en-PH&as_q=param1&as_epq=param2&as_oq=param3&as_eq=param4&as_nlo=5&as_nhi=6&lr=&cr=&as_qdr=all&as_sitesearch=&as_occt=any&as_filetype=&tbs=">
-                <div id="left">
-                    <label>all these words with</label>
-                    <label>this exact word or phrase</label>
-                    <label>any of these words</label>
-                    <label>none of these words</label>
-                </div>
-                <div id="right">
-                    <input type="text" name="search">
-                    <input type="text" name="search">
-                    <input type="text" name="search">
-                    <input type="text" name="search">
+                <div id="wrapper1">
+                    <div id="left">
+                        <label>all these words:</label>
+                        <label>this exact word or phrase:</label>
+                        <label>any of these words:</label>
+                        <label>none of these words:</label>
+                    </div>
+                    <div id="right">
+                        <input type="text" name="search">
+                        <input type="text" name="search">
+                        <input type="text" name="search">
+                        <input type="text" name="search">
+                        <div id="bottom">
+                            <input id="search" type="submit" value="Advanced Search">
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

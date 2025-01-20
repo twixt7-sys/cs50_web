@@ -19,34 +19,82 @@ html, body {
 }
 #header a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 #upper-body {
   background-color: #202124;
+  font-size: 24px;
+  font-weight: 500;
   display: flex;
   flex-direction: column;
-  padding: 0 48px;
+  padding: 24px 42px;
 }
 
 #hr {
-  height: 3px;
+  height: 1px;
   background-color: black;
 }
 
-#middle-body form {
-  display: flex;
-  flex-direction: row;
+#middle-body {
+  padding: 26px;
   background-color: #202124;
   color: #969ba1;
 }
-#middle-body form #left {
+#middle-body #heading {
+  display: flex;
+  font-size: medium;
+  margin: 6px;
+  padding: 6px;
+  color: white;
+}
+#middle-body form {
+  display: block;
+  flex-direction: column;
+}
+#middle-body form #wrapper1 {
+  display: flex;
+  flex-direction: row;
+}
+#middle-body form #wrapper1 #left {
   display: flex;
   flex-direction: column;
 }
-#middle-body form #right {
+#middle-body form #wrapper1 #left label {
+  display: flex;
+  font-size: smaller;
+  margin: 6px;
+  padding: 6px;
+}
+#middle-body form #wrapper1 #right {
   display: flex;
   flex-direction: column;
+}
+#middle-body form #wrapper1 #right input {
+  width: 500px;
+  margin: 6px;
+  padding: 6px;
+  background-color: #202124;
+  border: none;
+  border: 1px solid #5f6368;
+  outline: none;
+}
+#middle-body form #wrapper1 #right input:focus {
+  border: 1px solid rgb(150, 150, 255);
+}
+#middle-body form #wrapper1 #right #bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+#middle-body form #wrapper1 #right #bottom #search {
+  width: 140px;
+  padding: 8px;
+  margin: 12px 6px;
+  border: none;
+  background-color: rgb(180, 180, 255);
+  border-radius: 3px;
+  font-size: small;
+  font-weight: bold;
 }
 
 #lower-body {
