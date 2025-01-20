@@ -23,6 +23,12 @@ body {
     pointer-events: none;
 }
 
+canvas {
+    flex-grow: 1;
+    pointer-events: all;
+}
+
+
 #header {
     background-color: $background-color;
     display: flex;

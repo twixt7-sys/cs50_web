@@ -1,74 +1,51 @@
-html, body {
+html, body, body > #wrapper #lower-body, body > #wrapper #search-container #form > #wrapper #lower-body, body > #wrapper #search-container #form, body > #wrapper #search-container #form > #wrapper #header, body > #wrapper #search-container #form > #wrapper #upper-body, body > #wrapper #search-container #form > #wrapper #search-container, body > #wrapper #search-container, body > #wrapper #upper-body, body > #wrapper #header {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-body {
+body, body > #wrapper #lower-body, body > #wrapper #search-container #form > #wrapper #lower-body, body > #wrapper #search-container #form, body > #wrapper #search-container #form > #wrapper #header, body > #wrapper #search-container #form > #wrapper #upper-body, body > #wrapper #search-container #form > #wrapper #search-container, body > #wrapper #search-container, body > #wrapper #upper-body, body > #wrapper #header {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   background-color: #202124;
 }
-
-#header {
-  background-color: #202124;
-  display: flex;
+body > #wrapper, body > #wrapper #lower-body > #wrapper, body > #wrapper #lower-body > #wrapper #lower-body > #wrapper, body > #wrapper #search-container #form > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper, body > #wrapper #search-container #form > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper, body > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper, body > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper, body > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #lower-body > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container #form > #wrapper #search-container > #wrapper #search-container > #wrapper, body > #wrapper #upper-body > #wrapper, body > #wrapper #lower-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper, body > #wrapper #search-container #form > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper, body > #wrapper #search-container > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper, body > #wrapper #upper-body > #wrapper #upper-body > #wrapper, body > #wrapper #lower-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper, body > #wrapper #search-container #form > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper, body > #wrapper #search-container > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper, body > #wrapper #header > #wrapper, body > #wrapper #lower-body > #wrapper #header > #wrapper #header > #wrapper, body > #wrapper #search-container #form > #wrapper #header > #wrapper #header > #wrapper, body > #wrapper #search-container > #wrapper #header > #wrapper #header > #wrapper, body > #wrapper #upper-body > #wrapper #header > #wrapper #header > #wrapper {
+  flex: 1;
+}
+body > #wrapper #header, body > #wrapper #search-container #form > #wrapper #header {
   align-items: center;
   padding: 14px;
   justify-content: flex-end;
 }
-#header > a {
+body > #wrapper #header > a, body > #wrapper #search-container #form > #wrapper #header > a, body > #wrapper #header > #wrapper #header > a, body > #wrapper #lower-body > #wrapper #header > #wrapper #header > #wrapper #header > a, body > #wrapper #search-container #form > #wrapper #header > #wrapper #header > #wrapper #header > a, body > #wrapper #search-container > #wrapper #header > #wrapper #header > #wrapper #header > a, body > #wrapper #upper-body > #wrapper #header > #wrapper #header > #wrapper #header > a {
   text-decoration: none;
   color: rgb(232, 234, 237);
   padding: 0 12px;
 }
-
-.header-element {
-  background-color: #171718;
+body > #wrapper #header .header-element, body > #wrapper #search-container #form > #wrapper #header .header-element {
   height: 30px;
   width: 30px;
   margin: 2px;
 }
-
-#upper-body {
+body > #wrapper #upper-body, body > #wrapper #search-container #form > #wrapper #upper-body {
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-top: 198px;
   max-height: 92px;
 }
-#upper-body #img-container {
+body > #wrapper #upper-body > #img-container, body > #wrapper #upper-body > #wrapper #upper-body > #img-container, body > #wrapper #lower-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #img-container, body > #wrapper #search-container #form > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #img-container, body > #wrapper #search-container > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #img-container, body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #img-container, body > #wrapper #lower-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #img-container, body > #wrapper #search-container #form > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #img-container, body > #wrapper #search-container > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #wrapper #upper-body > #img-container {
   margin-top: auto;
 }
-
-.button, #search-container #form #button-container #google-search-button, #search-container #form #button-container #lucky-button {
-  background-color: #33363a;
-  color: rgb(232, 234, 237);
-  padding: 0px 16px;
-  border: none;
-  margin: 4px 4px 11px 11px;
-  height: 36px;
-  border-radius: 4px;
-}
-.button:hover, #search-container #form #button-container #google-search-button:hover, #search-container #form #button-container #lucky-button:hover {
-  border-color: #60656b;
-  border-width: 1px;
-  border-style: solid;
-}
-
-#search-container {
-  display: flex;
-  flex-direction: column;
+body > #wrapper #search-container, body > #wrapper #search-container #form > #wrapper #search-container {
   align-items: center;
   padding: 20px 6px;
 }
-#search-container #form {
-  display: flex;
-  flex-direction: column;
+body > #wrapper #search-container #form {
   align-items: center;
 }
-#search-container #form #search-bar {
+body > #wrapper #search-container #form #search-bar {
   background-color: rgb(77, 81, 86);
   max-width: 584px;
   min-height: 44px;
@@ -80,74 +57,78 @@ body {
   color: white;
   width: 582.184px;
 }
-#search-container #form #search-bar:hover, #search-container #form #search-bar:focus {
+body > #wrapper #search-container #form #search-bar:hover, body > #wrapper #search-container #form #search-bar:focus {
   background-color: #60656b;
   outline: none;
 }
-#search-container #form #button-container {
+body > #wrapper #search-container #form #button-container, body > #wrapper #lower-body > #wrapper #search-container #form #button-container {
   padding-top: 18px;
 }
-#lower-body {
+body > #wrapper #lower-body, body > #wrapper #search-container #form > #wrapper #lower-body {
   color: rgb(191, 191, 191);
   font-size: smaller;
-  display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
   flex-shrink: 0;
   box-sizing: border-box;
 }
-#lower-body > a {
+body > #wrapper #lower-body > a, body > #wrapper #search-container #form > #wrapper #lower-body > a, body > #wrapper #lower-body > #wrapper #lower-body > a, body > #wrapper #lower-body > #wrapper #lower-body > #wrapper #lower-body > a {
   margin: 0 3px;
   color: rgb(153, 195, 255);
   text-decoration: none;
 }
-
-#footer {
+body #footer, body #footer #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > a, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > span, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > a, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > span, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span, body > #wrapper #header #footer, body > #wrapper #upper-body #footer, body > #wrapper #search-container #footer, body > #wrapper #lower-body #footer {
   color: rgb(232, 232, 232);
 }
-#footer #upper-footer {
+body #footer #upper-footer, body #footer #lower-footer #footer-left > a #upper-footer, body #footer #lower-footer #footer-left #footer-left > a #upper-footer, body #footer #lower-footer #footer-left > span #upper-footer, body #footer #lower-footer #footer-left #footer-left > span #upper-footer, body #footer #lower-footer #footer-right > a #upper-footer, body #footer #lower-footer #footer-right #footer-right > a #upper-footer, body #footer #lower-footer #footer-right > span #upper-footer, body #footer #lower-footer #footer-right #footer-right > span #upper-footer {
   background-color: rgb(23, 23, 23);
   padding: 15px 30px;
   font-size: medium;
 }
-#footer #lower-footer {
+body #footer #lower-footer, body #footer #lower-footer #footer-left > a #lower-footer, body #footer #lower-footer #footer-left #footer-left > a #lower-footer, body #footer #lower-footer #footer-left > span #lower-footer, body #footer #lower-footer #footer-left #footer-left > span #lower-footer, body #footer #lower-footer #footer-right > a #lower-footer, body #footer #lower-footer #footer-right #footer-right > a #lower-footer, body #footer #lower-footer #footer-right > span #lower-footer, body #footer #lower-footer #footer-right #footer-right > span #lower-footer, body #footer #lower-footer #footer-left, body #footer #lower-footer #footer-left > a #lower-footer #footer-left, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left, body #footer #lower-footer #footer-left > span #lower-footer #footer-left, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left, body #footer #lower-footer #footer-right > a #lower-footer #footer-left, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-left, body #footer #lower-footer #footer-right > span #lower-footer #footer-left, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-left, body #footer #lower-footer #footer-right, body #footer #lower-footer #footer-left > a #lower-footer #footer-right, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-right, body #footer #lower-footer #footer-left > span #lower-footer #footer-right, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-right, body #footer #lower-footer #footer-right > a #lower-footer #footer-right, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right, body #footer #lower-footer #footer-right > span #lower-footer #footer-right, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right {
   background-color: rgb(23, 23, 23);
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  font-size: small;
+  justify-content: space-between;
   padding: 8px 20px;
   margin-top: 2px;
-  font-size: small;
 }
-#footer #lower-footer #footer-left, #footer #lower-footer #footer-right {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: small;
+body #footer #lower-footer #footer-left, body #footer #lower-footer #footer-left > a #lower-footer #footer-left, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left, body #footer #lower-footer #footer-left > span #lower-footer #footer-left, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left, body #footer #lower-footer #footer-right > a #lower-footer #footer-left, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-left, body #footer #lower-footer #footer-right > span #lower-footer #footer-left, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-left, body #footer #lower-footer #footer-right, body #footer #lower-footer #footer-left > a #lower-footer #footer-right, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-right, body #footer #lower-footer #footer-left > span #lower-footer #footer-right, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-right, body #footer #lower-footer #footer-right > a #lower-footer #footer-right, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right, body #footer #lower-footer #footer-right > span #lower-footer #footer-right, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right {
+  padding: 0;
 }
-#footer #lower-footer #footer-left > a, #footer #lower-footer #footer-left > span, #footer #lower-footer #footer-right > a, #footer #lower-footer #footer-right > span {
-  color: rgb(232, 232, 232);
+body #footer #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > a, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > a, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > a, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > a, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a, body #footer #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > span, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > span, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > span, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > span, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left > a #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left > span #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span #lower-footer #footer-left #footer-left > span, body #footer #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > a, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > a, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > a, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > a, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a, body #footer #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > span, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > span, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > span, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > span, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right > a #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right > span #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span #lower-footer #footer-right #footer-right > span {
   text-decoration: none;
   padding: 10px;
 }
 @media screen and (max-width: 1050px) {
-  #footer #lower-footer {
+  body #footer #lower-footer, body #footer #lower-footer #footer-left > a #lower-footer, body #footer #lower-footer #footer-left #footer-left > a #lower-footer, body #footer #lower-footer #footer-left > span #lower-footer, body #footer #lower-footer #footer-left #footer-left > span #lower-footer, body #footer #lower-footer #footer-right > a #lower-footer, body #footer #lower-footer #footer-right #footer-right > a #lower-footer, body #footer #lower-footer #footer-right > span #lower-footer, body #footer #lower-footer #footer-right #footer-right > span #lower-footer, body #footer #lower-footer #footer-left, body #footer #lower-footer #footer-left > a #lower-footer #footer-left, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left, body #footer #lower-footer #footer-left > span #lower-footer #footer-left, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left, body #footer #lower-footer #footer-right > a #lower-footer #footer-left, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-left, body #footer #lower-footer #footer-right > span #lower-footer #footer-left, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-left, body #footer #lower-footer #footer-right, body #footer #lower-footer #footer-left > a #lower-footer #footer-right, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-right, body #footer #lower-footer #footer-left > span #lower-footer #footer-right, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-right, body #footer #lower-footer #footer-right > a #lower-footer #footer-right, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right, body #footer #lower-footer #footer-right > span #lower-footer #footer-right, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right {
     justify-content: space-evenly;
   }
 }
 @media screen and (min-width: 1051px) {
-  #footer #lower-footer #footer-left {
+  body #footer #lower-footer #footer-left, body #footer #lower-footer #footer-left > a #lower-footer #footer-left, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-left, body #footer #lower-footer #footer-left > span #lower-footer #footer-left, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-left, body #footer #lower-footer #footer-right > a #lower-footer #footer-left, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-left, body #footer #lower-footer #footer-right > span #lower-footer #footer-left, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-left {
     justify-content: flex-start;
   }
-  #footer #lower-footer #footer-right {
+  body #footer #lower-footer #footer-right, body #footer #lower-footer #footer-left > a #lower-footer #footer-right, body #footer #lower-footer #footer-left #footer-left > a #lower-footer #footer-right, body #footer #lower-footer #footer-left > span #lower-footer #footer-right, body #footer #lower-footer #footer-left #footer-left > span #lower-footer #footer-right, body #footer #lower-footer #footer-right > a #lower-footer #footer-right, body #footer #lower-footer #footer-right #footer-right > a #lower-footer #footer-right, body #footer #lower-footer #footer-right > span #lower-footer #footer-right, body #footer #lower-footer #footer-right #footer-right > span #lower-footer #footer-right {
     justify-content: flex-end;
   }
 }
 
-#wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.button, body > #wrapper #search-container #form #button-container #google-search-button, body > #wrapper #search-container #form #button-container #lucky-button {
+  background-color: #33363a;
+  color: rgb(232, 234, 237);
+  padding: 0px 16px;
+  border: none;
+  margin: 4px 4px 11px 11px;
+  height: 36px;
+  border-radius: 4px;
+}
+.button:hover, body > #wrapper #search-container #form #button-container #google-search-button:hover, body > #wrapper #search-container #form #button-container #lucky-button:hover {
+  border-color: #60656b;
+  border-width: 1px;
+  border-style: solid;
 }
 
 /*# sourceMappingURL=style.css.map */
