@@ -3,6 +3,7 @@ $bg-color: #202124;
 html, body {
     font-family: Arial, sans-serif;
     color: #f28b82;
+    background-color: $bg-color;
     height: 100%;
     width: 100%;
     padding: 0;
@@ -99,11 +100,6 @@ html, body {
             }
         }
     }
-}
-
-#lower-body {
-    background-color: $bg-color;
-    display: flex;
 }
 
 

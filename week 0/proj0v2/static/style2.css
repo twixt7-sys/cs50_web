@@ -1,6 +1,7 @@
 html, body {
   font-family: Arial, sans-serif;
   color: #f28b82;
+  background-color: #202124;
   height: 100%;
   width: 100%;
   padding: 0;
@@ -95,11 +96,6 @@ html, body {
   border-radius: 3px;
   font-size: small;
   font-weight: bold;
-}
-
-#lower-body {
-  background-color: #202124;
-  display: flex;
 }
 
 /*# sourceMappingURL=style2.css.map */
