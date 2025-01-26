@@ -1,0 +1,109 @@
+$bg-color: #202124;
+
+html, body {
+    font-family: Arial, sans-serif;
+    color: #f28b82;
+    background-color: $bg-color;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#header {
+    background-color: $bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    img {
+        max-height: 25px;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+#upper-body {
+    background-color: $bg-color;
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 42px;
+}
+
+#hr {
+    height: 1px;
+    background-color: black;
+}
+
+#middle-body {
+    padding: 26px;
+    background-color: $bg-color;
+    color: #969ba1;
+    #heading {
+        display: flex;
+        font-size: medium;
+        margin: 6px;
+        padding: 6px;
+        color: white;
+    }
+
+    form {
+        display: block;
+        flex-direction: column;
+        #wrapper1 {
+            display: flex;
+            flex-direction: row;
+            #left {
+                display: flex;
+                flex-direction: column;
+                label {
+                    display: flex;
+                    font-size: smaller;
+                    margin: 6px;
+                    padding: 6px;
+                }
+            }
+            #right {
+                display: flex;
+                flex-direction: column;
+                input {
+                    width: 500px;
+                    margin: 6px;
+                    padding: 6px;
+                    background-color: #202124;
+                    border: none;
+                    border: 1px solid #5f6368;
+                    outline: none;
+                    color: #969ba1;
+                    &:focus {
+                        border: 1px solid rgb(150, 150, 255);
+                        color: #969ba1;
+                    }
+                }
+                #bottom {
+                    display: flex;
+                    justify-content: flex-end;
+                    #search {
+                        width: 140px;
+                        padding: 8px;
+                        margin: 12px 6px;
+                        border: none;
+                        background-color: rgb(180, 180, 255);
+                        border-radius: 3px;
+                        font-size: small;
+                        font-weight: bold;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
