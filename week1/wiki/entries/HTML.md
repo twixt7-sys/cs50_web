@@ -1,11 +1,3 @@
-# HTML
+# Html
 
-HTML is a markup language that can be used to define the structure of a web page. HTML elements include
-
-* headings
-* paragraphs
-* lists
-* links
-* and more!
-
-The most recent major version of HTML is HTML5.
+Html Is A Markup Language That Can Be Used To Define The Structure Of A Web Page. Html Elements Include* Headings* Paragraphs* Lists* Links* And More!The Most Recent Major Version Of Html Is Html5.
