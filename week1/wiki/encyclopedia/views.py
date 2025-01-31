@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from . import util
 
@@ -39,3 +39,27 @@ def search(request):
             "results": [],  #return results as an empty list if no query is provided
             "query": query
         })
+
+def newpage(request):
+    if request.method == "POST":
+        # get the needed data from the form
+        title = request.POST.get("title")   #get the title from the form
+        content = request.POST.get("content")   #get the content from the form
+        
+        # check if the title already exists
+        if title in util.list_entries():
+            return render(request, "encyclopedia/error.html", {
+                "error": "The page you are trying to create already exists."
+            })
+        else:
+            # save the new page
+            util.save_entry(title, content)
+            return redirect('entry', title=title)
+    else:
+        return render(request, "encyclopedia/newpage.html")
+        
+def edit(request):
+    if request.method == "POST":
+        # get the needed data from the form
+        title = request.POST.get("title")
+        content = request.POST.get("content")
