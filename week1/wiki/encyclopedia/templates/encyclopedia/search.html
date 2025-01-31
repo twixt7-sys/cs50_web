@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+    <h1>Search Page</h1>
+    <ul>
+    {% for result in results %}
+        <!-- loads the dynamic entry urls to be represented by the result variable -->
+        <li><a href="{% url 'entry' result %}">{{ result }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

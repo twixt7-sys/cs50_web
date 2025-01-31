@@ -30,5 +30,12 @@ def search(request):
         entries = util.list_entries()
         # iterates over the entries list and filteres out only the entries that contain the query (lower or uppercase) 
         results = [entry for entry in entries if query.lower() in entry.lower()]
-        return render()
-        
+        return render(request, "encyclopedia/search.html", {
+            "results": results,
+            "query": query
+        })
+    else:
+        return render(request, "encyclopedia/search.html", {
+            "results": [],  #return results as an empty list if no query is provided
+            "query": query
+        })
