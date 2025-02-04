@@ -20,7 +20,7 @@ def entry(request, title):
         })
     
     return render(request, "encyclopedia/entry.html", {
-        "entry": util.get_entry(title),
+        "title": util.get_entry(title),
         "content": markdown2.markdown(util.get_entry(title))
     })
     
@@ -44,19 +44,42 @@ def search(request):
 def newpage(request):
     if request.method == "POST":
         # get the needed data from the form
-        title = request.POST.get("title")   #get the title from the form
-        content = request.POST.get("content")   #get the content from the form
+        new_title = request.POST.get("title")
+        new_content = request.POST.get("content")
         
         # check if the title already exists
-        if title in util.list_entries():
+        if new_title in util.list_entries():
             return render(request, "encyclopedia/error.html", {
                 "error": "The page you are trying to create already exists."
             })
         else:
             # save the new page
-            util.save_entry(title, content)
-            return redirect('entry', title=title)
+            util.save_entry(new_title, new_content)
+            return render(request, "encyclopedia/entry.html", {
+                "entry": util.get_entry(new_title),
+                "title": new_title,
+                "content": new_content
+            })
     else:
         return render(request, "encyclopedia/newpage.html")
 
+def edit(request, title):
+    if request.method == "POST":
+        new_title = request.POST.get("title")
+        new_content = request.POST.get("content")
+        util.save_entry(new_title, new_content)
+        return render(request, "encyclopedia/entry.html", {
+            "entry": util.get_entry(new_title),
+            "title": new_title,
+            "content": new_content
+        })
+    
+    entry = util.get_entry(title)
+    if entry is None:
+        return render(request, "encyclopedia/error.html")
 
+    return render(request, "encyclopedia/edit.html", {
+        "entry": entry,
+        "title": title,
+        "content": entry
+    })
