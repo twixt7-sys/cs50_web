@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseBadRequest
 
 from . import util
 
@@ -64,8 +65,14 @@ def edit(request, title):
         new_title = request.POST.get("title")
         content = request.POST.get("content")
         
+        # validate the form data
+        if not new_title or not content:
+            return HttpResponseBadRequest("Title and content cannot be empty.")
+        
         # save the edited page
         util.save_entry(new_title, content)
+        
+        
         return redirect('entry', title=new_title)
     else:
         # get the current content of the page
@@ -73,4 +80,5 @@ def edit(request, title):
             "title": title,
             "content": util.get_entry(title)
         })
+
 
