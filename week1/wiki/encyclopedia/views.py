@@ -14,14 +14,17 @@ def index(request):
 
 def entry(request, title):
     
-    if util.get_entry(title) == None:
+    entry = util.get_entry(title)
+    
+    if entry == None:
         return render(request, "encyclopedia/error.html", {
             "error": "The page you are looking for does not exist."
         })
     
     return render(request, "encyclopedia/entry.html", {
-        "title": util.get_entry(title),
-        "content": markdown2.markdown(util.get_entry(title))
+        "entry": entry,
+        "title": title,
+        "content": markdown2.markdown(entry)
     })
     
 def search(request):
@@ -37,7 +40,7 @@ def search(request):
         })
     else:
         return render(request, "encyclopedia/search.html", {
-            "results": [],  #return results as an empty list if no query is provided
+            "results": [],
             "query": query
         })
 
@@ -64,17 +67,18 @@ def newpage(request):
         return render(request, "encyclopedia/newpage.html")
 
 def edit(request, title):
+    entry = util.get_entry(title)
+    
     if request.method == "POST":
         new_title = request.POST.get("title")
         new_content = request.POST.get("content")
         util.save_entry(new_title, new_content)
         return render(request, "encyclopedia/entry.html", {
-            "entry": util.get_entry(new_title),
+            "entry": entry,
             "title": new_title,
             "content": new_content
         })
     
-    entry = util.get_entry(title)
     if entry is None:
         return render(request, "encyclopedia/error.html")
 
