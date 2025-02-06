@@ -3,7 +3,8 @@ from django.http import HttpResponseBadRequest
 
 from . import util
 
-import markdown2
+import markdown2 as md2
+import random as r
 
 
 def index(request):
@@ -13,9 +14,7 @@ def index(request):
     })
 
 def entry(request, title):
-    
     entry = util.get_entry(title)
-    
     if entry == None:
         return render(request, "encyclopedia/error.html", {
             "error": "The page you are looking for does not exist."
@@ -24,7 +23,7 @@ def entry(request, title):
     return render(request, "encyclopedia/entry.html", {
         "entry": entry,
         "title": title,
-        "content": markdown2.markdown(entry)
+        "content": md2.markdown(entry)
     })
     
 def search(request):
@@ -58,10 +57,11 @@ def newpage(request):
         else:
             # save the new page
             util.save_entry(new_title, new_content)
+            entry = util.get_entry(new_title)
             return render(request, "encyclopedia/entry.html", {
-                "entry": util.get_entry(new_title),
+                "entry": entry,
                 "title": new_title,
-                "content": new_content
+                "content": md2.markdown(entry)
             })
     else:
         return render(request, "encyclopedia/newpage.html")
@@ -76,7 +76,7 @@ def edit(request, title):
         return render(request, "encyclopedia/entry.html", {
             "entry": entry,
             "title": new_title,
-            "content": new_content
+            "content": md2.markdown(entry)
         })
     
     if entry is None:
@@ -86,4 +86,18 @@ def edit(request, title):
         "entry": entry,
         "title": title,
         "content": entry
+    })
+    
+def random(request):
+    entries = util.list_entries()
+    if not entries:
+        return render(request, "encyclopedia/error.html", {
+            "error": "No entries available."
+        })
+    random_title = r.choice(entries)
+    entry = util.get_entry(random_title)
+    return render(request, "encyclopedia/entry.html", {
+        "entry": entry,
+        "title": random_title,
+        "content": md2.markdown(entry)
     })

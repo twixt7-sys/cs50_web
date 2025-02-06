@@ -5,6 +5,6 @@
 {% endblock %}
 
 {% block body %}
-    <pre>{{ content }}</pre>
-    <a href="{% url 'edit' title %}">Edit {{ title }} </a>
+    <pre>{{ content|safe }}</pre>
+    <a href="{% url 'edit' title %}">Edit {{ title }}</a>
 {% endblock %}
