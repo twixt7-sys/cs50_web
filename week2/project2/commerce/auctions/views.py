@@ -80,16 +80,16 @@ def create_listing(request):
         if action == "save":
             if request.user.is_authenticated:
                 Listing.objects.create(
-                    user=request.user,  # Associate the listing with the authenticated user
+                    user=request.user,
                     name=request.POST.get("name"),
                     description=request.POST.get("description"),
                     start_bid=request.POST.get("start_bid"),
                     image_url=request.POST.get("image_url"),
                     category=request.POST.get("category"),
                 )
-                return redirect("index")  # Redirect to the index page
+                return redirect("index")
             else:
-                return redirect("login")  # Redirect to login if user is not authenticated
+                return redirect("login")
         
         elif action == "cancel":
             return redirect("index")

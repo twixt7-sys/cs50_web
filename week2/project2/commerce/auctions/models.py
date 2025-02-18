@@ -12,15 +12,16 @@ class User(AbstractUser): # fields: username, password, email
         return f"username: {self.username}\nemail: {self.email}\npassword: {self.password}"
 
 class Listing(m.Model): # fields: name, price, description, date
+    user = m.ForeignKey(User, on_delete=m.CASCADE, related_name="Listings")
     name = m.CharField(max_length=150)
     price = m.DecimalField(max_digits=10, decimal_places=2)
     description = m.TextField()
     date = m.DateTimeField(auto_now_add=True)
-    image_url = m.URLField()
-    category = m.CharField(max_length=150)
+    image_url = m.URLField(null=True, blank=True)
+    category = m.CharField(max_length=150, null=True, blank=True)
 
 class Bid(m.Model): # fields: amount, bidder, listing
-    amount = m.DecimalField(max_length=10, decimal_places=2)
+    amount = m.DecimalField(max_digits=10, decimal_places=2)
     bidder = m.ForeignKey(User, on_delete=m.CASCADE, related_name="bids")
     listing = m.ForeignKey(Listing, on_delete=m.CASCADE, related_name="bids")
 
