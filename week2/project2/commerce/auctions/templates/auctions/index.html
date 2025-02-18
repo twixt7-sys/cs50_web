@@ -2,6 +2,24 @@
 
 {% block body %}
     <h2>Active Listings</h2>
-
-    TODO
+    <ul class="list-group">
+        {% for listing in active_listings %}
+        <li class="list-group-item">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div>
+                    <img src="{{ listing.image_url }}" class="img-fluid" alt="{{ listing.title }}" style="max-width: 150px; height: auto; border-radius: 5px;">
+                </div>
+                <div>
+                    <h6><strong>Listing Name:</strong> {{ listing.name }}</h6>
+                    <h6><strong>Description:</strong> {{ listing.description }}</h6>
+                    <h6><strong>Current Price:</strong> ${{ listing.price }}</h6>
+                </div>
+            </div>
+        </li>
+        {% empty %}
+            <div class="alert alert-info" role="alert">
+                No Active Listings
+            </div>
+        {% endfor %}
+    </ul>
 {% endblock %}

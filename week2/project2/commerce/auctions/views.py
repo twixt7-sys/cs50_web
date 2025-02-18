@@ -9,8 +9,11 @@ from .models import User, Listing
 
 
 def index(request):
-    return render(request, "auctions/index.html")
-
+    listings = Listing.objects.all()
+    active_listings = [listing for listing in listings if listing.is_active]
+    return render(request, "auctions/index.html", {
+        "active_listings": active_listings
+    })
 
 def login_view(request):
     if request.method == "POST":

@@ -11,7 +11,8 @@ class User(AbstractUser): # fields: username, password, email
     def __str__(self):
         return f"username: {self.username}\nemail: {self.email}\npassword: {self.password}"
 
-class Listing(m.Model): # fields: name, price, description, date
+class Listing(m.Model):
+    is_active = m.BooleanField(default=True)    
     user = m.ForeignKey(User, on_delete=m.CASCADE, related_name="Listings")
     name = m.CharField(max_length=150)
     price = m.DecimalField(max_digits=10, decimal_places=2)
