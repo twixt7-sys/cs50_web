@@ -63,4 +63,15 @@ def register(request):
         return render(request, "auctions/register.html")
 
 def create_listing(request):
-    return render(request, "auctions/create.html")
+    #using a dictionary for more dynamacity
+    field_names = ["name", "description", "start_bid", "image_url", "category"]
+    fields_data = [
+        {
+            "label": field.replace("_", " ").title() + ":",
+            "type": "number" if "bid" in field else "url" if "image" in field else "text",
+            "name": field,
+            "placeholder": field.replace("_", " ").title(),
+        }
+        for field in field_names
+    ]
+    return render(request, "auctions/create.html", {"fields_data": fields_data})

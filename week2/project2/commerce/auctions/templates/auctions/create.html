@@ -1,16 +1,20 @@
 {% extends "auctions/layout.html" %}
 
-<!-- it would be good for practice if this implements a bootstrap feature -->
-
 {% block body %}
-
+    <h3>Create Listing: </h3>
     <form method="POST" action="{% url 'index' %}">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="description" placeholder="Description">
-        <input type="number" name="start_bid" placeholder="Starting Bid">
-        <input type="url" name="image_url" placeholder="Image URL">
-        <input type="text" name="category" placeholder="Category">
-        <input type="Submit">
+        {% csrf_token %}
+
+        {% with fields=fields_data %}
+            {% for field in fields %}
+                <div class="form-group">
+                    <label>{{ field.label }}</label>
+                    <input class="form-control" type="{{ field.type }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}">
+                </div>
+            {% endfor %}
+        {% endwith %}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
 {% endblock %}
