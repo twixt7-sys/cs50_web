@@ -3,6 +3,7 @@ from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from decimal import Decimal
 
 from .models import User, Listing
 
@@ -80,12 +81,12 @@ def create_listing(request):
         if action == "save":
             if request.user.is_authenticated:
                 Listing.objects.create(
-                    user=request.user,
-                    name=request.POST.get("name"),
-                    description=request.POST.get("description"),
-                    start_bid=request.POST.get("start_bid"),
-                    image_url=request.POST.get("image_url"),
-                    category=request.POST.get("category"),
+                    user = request.user,
+                    name = request.POST.get("name"),
+                    description = request.POST.get("description"),
+                    price=Decimal(request.POST.get("start_bid") or "0.00"),
+                    image_url = request.POST.get("image_url"),
+                    category = request.POST.get("category"),
                 )
                 return redirect("index")
             else:

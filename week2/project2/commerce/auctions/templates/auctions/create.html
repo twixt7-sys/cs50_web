@@ -2,7 +2,7 @@
 
 {% block body %}
     <h3>Create Listing: </h3>
-    <form method="POST" action="{% url 'index' %}">
+    <form method="POST" action="{% url 'create' %}">
         {% csrf_token %}
 
         {% with fields=data %}
@@ -14,8 +14,8 @@
             {% endfor %}
         {% endwith %}
 
-        <button type="submit" value="save" class="btn btn-primary">Save</button>
-        <button type="submit" value="cancel" class="btn btn-secondary">Cancel</button>
+        <button name="action" type="submit" value="save" class="btn btn-primary">Save</button>
+        <button name="action" type="submit" value="cancel" class="btn btn-secondary">Cancel</button>
     </form>
 
 {% endblock %}
