@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from .models import User
+from .models import User, Listing
 
 
 def index(request):
@@ -78,8 +78,20 @@ def create_listing(request):
     if request.method == "POST":
         action = request.POST.get("action")
         if action == "save":
-            redirect(request, "auctions/index.html")
+            if request.user.is_authenticated:
+                Listing.objects.create(
+                    user=request.user,  # Associate the listing with the authenticated user
+                    name=request.POST.get("name"),
+                    description=request.POST.get("description"),
+                    start_bid=request.POST.get("start_bid"),
+                    image_url=request.POST.get("image_url"),
+                    category=request.POST.get("category"),
+                )
+                return redirect("index")  # Redirect to the index page
+            else:
+                return redirect("login")  # Redirect to login if user is not authenticated
+        
         elif action == "cancel":
-            redirect(request, "auctions/index.html")
+            return redirect("index")
     
     return render(request, "auctions/create.html", {"data": data})
