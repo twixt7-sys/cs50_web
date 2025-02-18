@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from .models import User
@@ -64,14 +64,22 @@ def register(request):
 
 def create_listing(request):
     #using a dictionary for more dynamacity
-    field_names = ["name", "description", "start_bid", "image_url", "category"]
-    fields_data = [
+    labels = ["name", "description", "start_bid", "image_url", "category"]
+    data = [
         {
             "label": field.replace("_", " ").title() + ":",
             "type": "number" if "bid" in field else "url" if "image" in field else "text",
             "name": field,
             "placeholder": field.replace("_", " ").title(),
         }
-        for field in field_names
+        for field in labels
     ]
-    return render(request, "auctions/create.html", {"fields_data": fields_data})
+    
+    if request.method == "POST":
+        action = request.POST.get("action")
+        if action == "save":
+            redirect(request, "auctions/index.html")
+        elif action == "cancel":
+            redirect(request, "auctions/index.html")
+    
+    return render(request, "auctions/create.html", {"data": data})

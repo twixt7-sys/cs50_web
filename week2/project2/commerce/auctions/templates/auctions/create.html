@@ -5,7 +5,7 @@
     <form method="POST" action="{% url 'index' %}">
         {% csrf_token %}
 
-        {% with fields=fields_data %}
+        {% with fields=data %}
             {% for field in fields %}
                 <div class="form-group">
                     <label>{{ field.label }}</label>
@@ -14,7 +14,8 @@
             {% endfor %}
         {% endwith %}
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" value="save" class="btn btn-primary">Save</button>
+        <button type="submit" value="cancel" class="btn btn-secondary">Cancel</button>
     </form>
 
 {% endblock %}
