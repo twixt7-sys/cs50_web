@@ -1,9 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models as m
 
-#classes usually contains string representations of the objects
-class User(AbstractUser): # fields: username, password, email
-    # using max_lengths based on convention
+class User(AbstractUser):
     username = m.CharField(max_length=150, unique=True)
     password = m.CharField(max_length=128)
     email = m.EmailField(max_length=254, unique=True)
@@ -12,6 +10,7 @@ class User(AbstractUser): # fields: username, password, email
         return f"username: {self.username}\nemail: {self.email}\npassword: {self.password}"
 
 class Listing(m.Model):
+    id = m.AutoField(primary_key=True)
     is_active = m.BooleanField(default=True)    
     user = m.ForeignKey(User, on_delete=m.CASCADE, related_name="Listings")
     name = m.CharField(max_length=150)
