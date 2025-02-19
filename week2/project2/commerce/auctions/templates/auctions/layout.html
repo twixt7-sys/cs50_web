@@ -9,7 +9,7 @@
     </head>
     <body>
         <div id="header">
-            <div>
+            <div id="title">
                 <h1>Auctions</h1>
                 <div>
                     {% if user.is_authenticated %}
@@ -19,7 +19,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div>
+            <div id="nav">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">Active Listings</a>
