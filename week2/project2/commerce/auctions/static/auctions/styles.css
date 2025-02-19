@@ -16,5 +16,12 @@ body, html {
 }
 
 #nav {
-    padding-left: 50px;;
+    padding-left: 50px;
+    display: flex;
+    flex: 1;
+}
+
+#logout{
+    margin-left: auto;
+    padding-right: 50px;
 }
