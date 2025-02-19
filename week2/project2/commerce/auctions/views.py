@@ -99,3 +99,8 @@ def create_listing(request):
             return redirect("index")
     
     return render(request, "auctions/create.html", {"data": data})
+
+def listing(request, listing_id):
+    return render(request, "auctions/listing.html", {
+        "listing": Listing.objects.get(id=listing_id),
+    })

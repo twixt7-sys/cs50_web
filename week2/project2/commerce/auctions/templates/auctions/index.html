@@ -2,23 +2,28 @@
 
 {% block body %}
     <h2>Active Listings</h2>
+        <div style="display: flex;">
         {% for listing in active_listings %}
-        <a href="{% url 'index' %}" class="text-decoration-none">
-            <div class="p-3 mb-3 border rounded bg-light d-flex align-items-center gap-3">
-                <div style="height: 150px; width: 150px; overflow: hidden; border-radius: 5px; ">
-                <img src="{{ listing.image_url }}" class="img-fluid" alt="{{ listing.title }}" 
-                     style="max-height: 150px; width: auto; border-radius: 5px;">
+        <div class="card" style="width: 18rem; padding: 5px;">
+            <div>
+                <div style="height: 150px; width:150px;  display: flex; justify-content: center; margin: auto;">
+                    <img class="card-img-top" src="{{ listing.image_url }}" alt="{{listing.name}}" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
-                <div>
-                    <h3><strong>{{ listing.name }}</strong></h3>
-                    <h5>{{ listing.description }}</h5>
-                    <h4>${{ listing.price }}</h4>
+                <div class="card-body">
+                <h5 class="card-title">{{listing.name}}</h5>
+                <p class="card-text">
+                    {{ listing.name }}
+                    {{ listing.description }}
+                    ${{ listing.price }}
+                </p>
+                <a href="{% url 'listing' listing.id %}" class="btn btn-primary">Check</a>
                 </div>
             </div>
-        </a>
+        </div>
         {% empty %}
             <div class="alert alert-info" role="alert">
                 No Active Listings
             </div>
         {% endfor %}
+        </div>
 {% endblock %}
