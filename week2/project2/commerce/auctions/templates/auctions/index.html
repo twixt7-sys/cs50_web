@@ -2,35 +2,37 @@
 
 {% block body %}
     <h2>Active Listings</h2>
-        <div style="display: flex;">
+    <div class="row" style="display: flex;">
         {% for listing in active_listings %}
-        <a href="{% url 'listing' listing.id %}" class="card" style="width: 18rem; padding: 5px; text-decoration: none; color: inherit; padding-top: 20px; margin: 5px;">
-            <div>
-                <div style="height: 150px; width:150px;  display: flex; justify-content: center; margin: auto;">
-                    <img class="card-img-top" src="{{ listing.image_url }}" alt="{{listing.name}}" style="width: 100%; height: 100%; object-fit: contain;">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>
-                    <p class="card-text">
-                        {{ listing.description }}
-                        <br>
-                        ${{ listing.price }}
-                    </p>
-                </div>
-                <div class="card-footer" style="display: flex; font-size: small; color: gray;" >
-                    <div>
-                        {{listing.user.username}}         
+        <div class="col-sm-0.5">
+            <a href="{% url 'listing' listing.id %}" class="card" style="width: 18rem; padding: 5px; text-decoration: none; color: inherit; padding-top: 20px; margin: 5px;">
+                <div>
+                    <div style="height: 150px; width:150px;  display: flex; justify-content: center; margin: auto;">
+                        <img class="card-img-top" src="{{ listing.image_url }}" alt="{{listing.name}}" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
-                    <div>
-                        {{listing.date}}
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>
+                        <p class="card-text">
+                            {{ listing.description }}
+                            <br>
+                            ${{ listing.price }}
+                        </p>
+                    </div>
+                    <div class="card-footer" style="display: flex; font-size: small; color: gray;" >
+                        <div>
+                            {{listing.user.username}}         
+                        </div>
+                        <div>
+                            {{listing.date}}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
         {% empty %}
             <div class="alert alert-info" role="alert">
                 No Active Listings
             </div>
         {% endfor %}
-        </div>
+    </div>
 {% endblock %}
