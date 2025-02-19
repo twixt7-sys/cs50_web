@@ -5,8 +5,10 @@
         {% for listing in active_listings %}
         <a href="{% url 'index' %}" class="text-decoration-none">
             <div class="p-3 mb-3 border rounded bg-light d-flex align-items-center gap-3">
+                <div style="height: 150px; width: 150px; overflow: hidden; border-radius: 5px; ">
                 <img src="{{ listing.image_url }}" class="img-fluid" alt="{{ listing.title }}" 
                      style="max-height: 150px; width: auto; border-radius: 5px;">
+                </div>
                 <div>
                     <h3><strong>{{ listing.name }}</strong></h3>
                     <h5>{{ listing.description }}</h5>
