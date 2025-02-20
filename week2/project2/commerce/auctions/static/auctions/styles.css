@@ -1,9 +1,5 @@
-body {
-  padding: 10px;
-  padding-left: 50px;
-}
-
 #header {
+  background-color: blue;
   display: flex;
   align-items: center;
 }

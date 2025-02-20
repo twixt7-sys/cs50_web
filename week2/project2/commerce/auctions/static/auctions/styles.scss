@@ -1,0 +1,43 @@
+body {
+}
+
+#header {
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    #title {
+        h1 {
+            color: black;
+        }
+        div {
+            color: gray;
+            font-size: smaller;
+            margin-top: -10px;
+        }
+    }
+    #nav {
+        padding-left: 50px;
+        display: flex;
+        flex: 1;
+    }
+}
+
+#login, #logout{
+    margin-left: auto;
+}
+
+#listing {
+    display: flex; 
+    flex: 1;
+    #main-info {
+        display: flex;
+        #img-container {
+            max-width: 150px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
