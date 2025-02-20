@@ -1,16 +1,15 @@
-body {
-}
-
 #header {
-    background-color: blue;
     display: flex;
     align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
     #title {
         h1 {
-            color: black;
+            color: white;
         }
         div {
-            color: gray;
+            color: lightblue;
             font-size: smaller;
             margin-top: -10px;
         }
@@ -24,6 +23,7 @@ body {
 
 #login, #logout{
     margin-left: auto;
+    margin-right: 50px;
 }
 
 #listing {
