@@ -15,9 +15,9 @@
                 </h5>
             </div>
         </div>
-        <li class="list-group-item">Uploaded by: {{listing.user.username}}</li>
-        <li class="list-group-item">Category: {{listing.category}}</li>
-        <li class="list-group-item"></li>
+        {% for d in display %}
+            <li class="list-group-item">{{d[0]}}: {{d[1]}}</li>
+        {% endfor %}
         </ul>
         <div class="card-body">
             <a href="#" class="card-link">Card link</a>

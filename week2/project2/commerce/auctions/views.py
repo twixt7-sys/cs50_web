@@ -101,6 +101,13 @@ def create_listing(request):
     return render(request, "auctions/create.html", {"data": data})
 
 def listing(request, listing_id):
+    listing = Listing.objects.get(id=listing_id)
     return render(request, "auctions/listing.html", {
-        "listing": Listing.objects.get(id=listing_id),
+        "listing": listing,
+        "display": {
+            "Item ID": listing.id,
+            "Uploaded by": listing.user.username,
+            "Category": listing.category,
+            "Date added": listing.date
+        }
     })
