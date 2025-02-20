@@ -15,8 +15,9 @@
                 </h5>
             </div>
         </div>
-        {% for d in display %}
-            <li class="list-group-item">{{d[0]}}: {{d[1]}}</li>
+        <ul class="list-group">
+        {% for key, value in display.items %}
+            <li class="list-group-item">{{ key }}: {{ value }}</li>
         {% endfor %}
         </ul>
         <div class="card-body">
