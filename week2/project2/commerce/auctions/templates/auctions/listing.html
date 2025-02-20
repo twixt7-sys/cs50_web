@@ -1,9 +1,27 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-
-    <div style="display: flex; height: 250px; width: 250px; align-items: center;">
-        <h2> {{ listing.name }} </h2>
-        <img src="" style="max-height: 150px;">
+    <div id="listing" class="card ">
+        <div id="main-info">
+            <div id="img-container">
+                <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title"> <strong> {{listing.name}} </strong> </h5>
+                <h5 class="card-text">
+                    {{ listing.description }}
+                    <br> <br>
+                    <strong>${{ listing.price }}</strong>
+                </h5>
+            </div>
+        </div>
+        <li class="list-group-item">Uploaded by: {{listing.user.username}}</li>
+        <li class="list-group-item">Category: {{listing.category}}</li>
+        <li class="list-group-item"></li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
     </div>
 {% endblock %}
