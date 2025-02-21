@@ -38,6 +38,7 @@
     justify-content: space-evenly;
     align-items: center;
     max-width: 500px;
+    padding: 10px;
     #cardhead {
         display: flex;
         flex: 1;
@@ -51,7 +52,11 @@
             }
         }
         #main-info {
-
         }
+    }
+    #sub-contents {
+        width: 100%;
+        display: flex;
+        flex: 1;
     }
 }
