@@ -2,6 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models as m
 
 class User(AbstractUser):
+    id = m.AutoField(primary_key=True)
+    watchlist = m.ManyToManyField("Listing", blank=True, related_name="watchers")
     username = m.CharField(max_length=150, unique=True)
     password = m.CharField(max_length=128)
     email = m.EmailField(max_length=254, unique=True)

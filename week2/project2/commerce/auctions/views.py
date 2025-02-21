@@ -111,3 +111,9 @@ def listing(request, listing_id):
             "Date added": listing.date
         }
     })
+
+def watchlist(request, user_id):
+    return render(request, "auctions/watchlist.html")
+
+def bid(request):
+    pass

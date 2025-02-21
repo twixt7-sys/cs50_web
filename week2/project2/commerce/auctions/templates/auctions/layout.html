@@ -8,7 +8,7 @@
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <div id="header" class="bg-primary shadow p-3 mb-5">
+        <div id="header" class="bg-primary shadow p-3">
             <div id="title">
                 <h1>Auctions</h1>
                 <div>
@@ -28,6 +28,9 @@
                         <li class="nav-item">
                             <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'create' %}btn-outline-light{% endif %}" href="{% url 'create' %}">Create Listing</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'watchlist' %}btn-outline-light{% endif %}" href="{% url 'watchlist' user.id%}">Watchlist</a>
+                        </li>
                     {% endif %}
                 </ul>
                 {% if user.is_authenticated %}
@@ -46,7 +49,6 @@
                 {% endif %}
             </div>
         </div>
-        <hr>
         <div id="body">
             {% block body %}
             {% endblock %}

@@ -2,11 +2,11 @@
 
 {% block body %}
     <div id="listing" class="card ">
-        <div id="main-info">
+        <div id="cardhead">
             <div id="img-container">
                 <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
             </div>
-            <div class="card-body">
+            <div id="main-info" class="card-body">
                 <h3 class="card-title"> <strong> {{listing.name}} </strong> </h5>
                 <h5 class="card-text">
                     {{ listing.description }}
@@ -15,14 +15,16 @@
                 </h5>
             </div>
         </div>
-        <ul class="list-group">
-        {% for key, value in display.items %}
-            <li class="list-group-item">{{ key }}: {{ value }}</li>
-        {% endfor %}
+        <ul id="sub-contents" class="list-group">
+            {% for key, value in display.items %}
+                <li class="list-group-item">{{ key }}: {{ value }}</li>
+            {% endfor %}
         </ul>
         <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'bid' listing.id %}" class="card-link">Bid</a>
+                <a href="{% url 'watchlist' user.id %}" class="card-link">Add to Watchlist</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
