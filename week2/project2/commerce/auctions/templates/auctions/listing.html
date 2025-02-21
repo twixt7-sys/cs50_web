@@ -1,32 +1,36 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div id="listing" class="card ">
-        <div id="cardhead">
-            <div id="img-container">
-                <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
+    <div id="listing-parent">
+        <div id="listing" class="card ">
+            <div id="cardhead">
+                <div id="img-container">
+                    <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
+                </div>
+                <div id="main-info" class="card-body">
+                    <div>
+                        <h3 class="card-title"> <strong>
+                            {{listing.name}} <br>
+                        </strong> </h5>
+                        <h5 class="card-text">
+                            {{ listing.description }}
+                            <br> <br>
+                            <strong>${{ listing.price }}</strong>
+                        </h5>
+                    </div>
+                </div>
             </div>
-            <div id="main-info" class="card-body">
-                <h3 class="card-title"> <strong>
-                    {{listing.name}} <br>
-                </strong> </h5>
-                <h5 class="card-text">
-                    {{ listing.description }}
-                    <br> <br>
-                    <strong>${{ listing.price }}</strong>
-                </h5>
+            <ul id="sub-contents" class="list-group">
+                {% for key, value in display.items %}
+                    <li class="list-group-item">{{ key }}: {{ value }}</li>
+                {% endfor %}
+            </ul>
+            <div class="card-body">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'bid' listing.id %}" class="card-link btn btn-primary">Bid</a>
+                    <a href="{% url 'watchlist' user.id %}" class="card-link btn btn-primary">Add to Watchlist</a>
+                {% endif %}
             </div>
-        </div>
-        <ul id="sub-contents" class="list-group">
-            {% for key, value in display.items %}
-                <li class="list-group-item">{{ key }}: {{ value }}</li>
-            {% endfor %}
-        </ul>
-        <div class="card-body">
-            {% if user.is_authenticated %}
-                <a href="{% url 'bid' listing.id %}" class="card-link btn btn-primary">Bid</a>
-                <a href="{% url 'watchlist' user.id %}" class="card-link btn btn-primary">Add to Watchlist</a>
-            {% endif %}
         </div>
     </div>
 {% endblock %}
