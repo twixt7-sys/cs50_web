@@ -5,7 +5,7 @@
         <div class="row">
             {% for listing in active_listings %}
             <div class="col-sm-0.5 btn btn-light">
-                <a href="{% url 'listing' listing.id %}" class="card border shadow">
+                <a href="{% url 'listing' listing.id %}" class="card shadow-sm">
                     <div>
                         <div id="img-holder">
                             <img class="card-img-top" src="{{ listing.image_url }}" alt="{{listing.name}}">
