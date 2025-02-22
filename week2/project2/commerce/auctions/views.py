@@ -113,7 +113,10 @@ def listing(request, listing_id):
     })
 
 def watchlist(request, user_id):
-    return render(request, "auctions/watchlist.html")
+    
+    return render(request, "auctions/watchlist.html", {
+        "watchlist": User.objects.get(id=user_id).watchlist.all()
+    })
 
 def bid(request):
     pass
