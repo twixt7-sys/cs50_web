@@ -6,10 +6,8 @@
             {% for listing in active_listings %}
             <div class="col-sm-0.5 btn btn-light">
                 <a href="{% url 'listing' listing.id %}" class="card shadow-sm">
-                    <div>
-                        <div id="img-holder">
-                            <img class="card-img-top" src="{{ listing.image_url }}" alt="{{listing.name}}">
-                        </div>
+                    <span class="badge badge-pill badge-success justify-content-end">Active</span>
+                    <img class="card-img-top" src="{{ listing.image_url }}" alt="{{listing.name}}">
                         <div class="card-body">
                             <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>
                             <p class="card-text">
@@ -24,7 +22,6 @@
                                 <label>{{listing.date}}</label>
                             </div>
                         </div>
-                    </div>
                 </a>
             </div>
             {% empty %}
