@@ -3,6 +3,7 @@
 #body{
     background-color: lightcyan;
     padding: 25px;
+    padding-top: 125px;
 }
 
 #header {
@@ -11,6 +12,13 @@
     padding-top: 10px;
     padding-bottom: 10px;
     
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: inherit;
+    z-index: 1000;
+
     #title {
         padding-left: 10px;
         h1 {
