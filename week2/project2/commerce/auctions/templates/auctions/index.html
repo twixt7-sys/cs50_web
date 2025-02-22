@@ -5,7 +5,7 @@
         <div class="row">
             {% for listing in active_listings %}
             <div class="col-sm-0.5 btn btn-light">
-                <a href="{% url 'listing' listing.id %}" class="card" style="width: 18rem; padding: 5px; text-decoration: none; color: inherit; padding-top: 20px; margin: 5px;">
+                <a href="{% url 'listing' listing.id %}" class="card">
                     <div>
                         <div id="img-holder">
                             <img class="card-img-top" src="{{ listing.image_url }}" alt="{{listing.name}}">
@@ -18,12 +18,10 @@
                                 <strong>${{ listing.price }}</strong>
                             </p>
                         </div>
-                        <div class="card-footer" style="display: flex; font-size: small; color: gray;" >
-                            <div>
-                                {{listing.user.username}}         
-                            </div>
-                            <div>
-                                {{listing.date}}
+                        <div class="card-footer text-muted ">
+                            <div id="footer-components">
+                                <label>{{listing.user.username}}</label> |
+                                <label>{{listing.date}}</label>
                             </div>
                         </div>
                     </div>

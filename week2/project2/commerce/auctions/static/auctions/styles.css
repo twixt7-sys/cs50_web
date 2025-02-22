@@ -31,18 +31,25 @@
   justify-content: center;
   align-items: center;
 }
-#active-listings .row #img-holder {
+#active-listings .row a {
+  width: 18rem;
+  padding: 5px;
+  text-decoration: none;
+  color: inherit;
+  padding-top: 20px;
+  margin: 5px;
+}
+#active-listings .row a #img-holder {
   height: 120px;
   width: 100px;
   display: flex;
   margin: auto;
 }
-#active-listings .row #img-holder img {
+#active-listings .row a #img-holder img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
-
 #login, #logout {
   margin-left: auto;
   margin-right: 50px;
