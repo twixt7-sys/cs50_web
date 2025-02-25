@@ -10,7 +10,7 @@
                     <div class="w-100 position-relative">
                         <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
                         {% if listing in user.watchlist.all %}
-                            <span id="watchlist" class="badge badge-primary badge-pill position-absolute m-2 bg-secondary">
+                            <span id="watchlist-badge" class="badge badge-primary badge-pill position-absolute m-2 bg-secondary">
                                 watchlist
                             </span>
                         {% endif %}

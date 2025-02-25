@@ -55,7 +55,7 @@ body, html {
   object-fit: contain;
   margin-top: 15px;
 }
-#active-listings .row a div #watchlist, #watchlist .row a div #watchlist {
+#active-listings .row a div #watchlist-badge, #watchlist .row a div #watchlist-badge {
   font-size: small;
 }
 #active-listings .row a span, #watchlist .row a span {

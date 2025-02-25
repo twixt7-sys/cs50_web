@@ -7,7 +7,9 @@
             <div class="col-sm-0.5 btn btn-light">
                 <a href="{% url 'listing' listing.id %}" class="card shadow-sm">
                     <span class="badge badge-success">Active</span>
-                    <img src="{{ listing.image_url }}" alt="{{listing.name}}">
+                    <div>
+                        <img src="{{ listing.image_url }}" alt="{{listing.name}}">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>
                         <p class="card-text">
