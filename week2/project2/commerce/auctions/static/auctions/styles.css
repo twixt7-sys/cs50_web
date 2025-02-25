@@ -43,16 +43,20 @@ body, html {
   align-items: center;
 }
 #active-listings .row a, #watchlist .row a {
-  width: 18rem;
+  width: 19rem;
   padding: 5px;
   text-decoration: none;
   color: inherit;
   margin: 5px;
 }
-#active-listings .row a img, #watchlist .row a img {
-  height: 120px;
+#active-listings .row a div img, #watchlist .row a div img {
+  height: 115px;
+  width: 115px;
   object-fit: contain;
   margin-top: 15px;
+}
+#active-listings .row a div #watchlist, #watchlist .row a div #watchlist {
+  font-size: small;
 }
 #active-listings .row a span, #watchlist .row a span {
   opacity: 30%;

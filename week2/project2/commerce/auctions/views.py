@@ -12,6 +12,7 @@ def index(request):
     listings = Listing.objects.all()
     active_listings = [listing for listing in listings if listing.is_active]
     return render(request, "auctions/index.html", {
+        "user": request.user,
         "active_listings": active_listings
     })
 

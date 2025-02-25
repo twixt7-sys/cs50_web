@@ -7,7 +7,14 @@
             <div class="col-sm-0.5 btn btn-light">
                 <a href="{% url 'listing' listing.id %}" class="card shadow-sm">
                     <span class="badge badge-success">Active</span>
-                    <img src="{{ listing.image_url }}" alt="{{listing.name}}">
+                    <div class="w-100 position-relative">
+                        <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
+                        {% if listing in user.watchlist.all %}
+                            <span id="watchlist" class="badge badge-primary badge-pill position-absolute m-2 bg-secondary">
+                                watchlist
+                            </span>
+                        {% endif %}
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>
                         <p class="card-text">

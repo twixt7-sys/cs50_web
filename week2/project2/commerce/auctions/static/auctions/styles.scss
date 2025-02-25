@@ -45,19 +45,28 @@ body, html {
         justify-content: center;
         align-items: center;
         a {
-            width: 18rem;
+            width: 19rem;
             padding: 5px;
             text-decoration: none;
             color: inherit;
             margin: 5px;
-            img {
-                height: 120px;
-                object-fit: contain;
-                margin-top: 15px;
+            div{
+                img {
+                    height: 115px;
+                    width: 115px;
+                    object-fit: contain;
+                    margin-top: 15px;
+                }
+                #watchlist{
+                    font-size: small;
+                }
             }
+            
             span {
                 opacity: 30%;
+                
             }
+            
         }
     }
 }
