@@ -3,7 +3,7 @@
 {% block body %}
     <div id="listing-parent">
         <div id="listing" class="card w-100">
-            <div class="alert alert-success w-100 font-weight-bold">
+            <div class="alert alert-success w-100 font-weight-bold text-center" role="alert">
                 Active
             </div>
             <div id="cardhead">
@@ -28,15 +28,17 @@
                     <li class="list-group-item"><strong>{{ key }}</strong>: {{ value }}</li>
                 {% endfor %}
             </ul>
-            <div class="card-body">
+            <form class="card-body" method="POST" action="{% url 'listing' listing.id %}">
+                {% csrf_token %}
                 {% if user.is_authenticated %}
-                    <a href="{% url 'bid' listing.id %}" class="card-link btn btn-primary">Bid</a>
-                    <a href="{% url 'watchlist' user.id %}" class="card-link btn btn-primary">Add to Watchlist</a>
+                    <input name="submit" type="submit" class="card-link btn btn-primary" value="Bid">
+                    <input name="add" type="submit" class="card-link btn btn-primary" value="Add to Watchlist">
+                    <input name="comment" type="submit" class="card-link btn btn-primary" value="Comment">
                     {% if user.id == listing.user.id %}
-                        <a href="{% url 'index' %}" class="card-link btn btn-danger">Close Bid</a>
+                        <input name="close" type="submit" class="card-link btn btn-danger" value="Close Bid">
                     {% endif %}
                 {% endif %}
-            </div>
+            </form>
         </div>
     </div>
 {% endblock %}

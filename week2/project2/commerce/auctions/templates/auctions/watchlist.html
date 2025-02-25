@@ -1,19 +1,36 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-
-    <h2>Watchlist</h2>
-
-    <ul class="list-group">
-        {% for listing in watchlist %}
-            <li class="list-group-item">
-                <a href="{% url 'listing' listing.id %}">{{ listing.name }}</a>
-            </li>
-        {% empty %}
-            <li class="list-group-item">No items in watchlist</li>
-        {% endfor %}
-    </ul>
-
+    <div id="watchlist">
+        <div class="row">
+            {% for listing in watchlist %}
+            <div class="col-sm-0.5 btn btn-light">
+                <a href="{% url 'listing' listing.id %}" class="card shadow-sm">
+                    <span class="badge badge-success">Active</span>
+                    <img src="{{ listing.image_url }}" alt="{{listing.name}}">
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>
+                        <p class="card-text">
+                            {{ listing.description }}
+                            <br>
+                            <strong>${{ listing.price }}</strong>
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted ">
+                        <div id="footer-components">
+                            <label>{{listing.user.username}}</label> |
+                            <label>{{listing.date}}</label>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% empty %}
+                <div class="alert alert-info" role="alert">
+                    There are no listings ni your watchlist.
+                </div>
+            {% endfor %}
+        </div>
+    </div>
     <!-- content here -->
 
 {% endblock %}

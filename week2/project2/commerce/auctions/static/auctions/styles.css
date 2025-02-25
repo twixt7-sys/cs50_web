@@ -33,24 +33,24 @@
   flex: 1;
 }
 
-#active-listings .row {
+#active-listings .row, #watchlist .row {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#active-listings .row a {
+#active-listings .row a, #watchlist .row a {
   width: 18rem;
   padding: 5px;
   text-decoration: none;
   color: inherit;
   margin: 5px;
 }
-#active-listings .row a img {
+#active-listings .row a img, #watchlist .row a img {
   height: 120px;
   object-fit: contain;
   margin-top: 15px;
 }
-#active-listings .row a span {
+#active-listings .row a span, #watchlist .row a span {
   opacity: 30%;
 }
 
@@ -96,6 +96,9 @@
   width: 100%;
   display: flex;
   flex: 1;
+}
+#listing-parent #listing form input {
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=styles.css.map */
