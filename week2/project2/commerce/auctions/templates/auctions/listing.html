@@ -32,7 +32,11 @@
                 {% csrf_token %}
                 {% if user.is_authenticated %}
                     <input name="submit" type="submit" class="card-link btn btn-primary" value="Bid">
-                    <input name="add" type="submit" class="card-link btn btn-primary" value="Add to Watchlist">
+                    {% if listing not in user.watchlist.all %}
+                        <input name="add" type="submit" class="card-link btn btn-primary" value="Add to Watchlist">
+                    {% else %}
+                        <input name="remove" type="submit" class="card-link btn btn-danger" value="Remove from Watchlist">
+                    {% endif %}
                     <input name="comment" type="submit" class="card-link btn btn-primary" value="Comment">
                     {% if user.id == listing.user.id %}
                         <input name="close" type="submit" class="card-link btn btn-danger" value="Close Bid">

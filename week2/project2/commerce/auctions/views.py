@@ -96,18 +96,20 @@ def create_listing(request):
     return render(request, "auctions/create.html", {"data": data})
 
 def listing(request, listing_id):
-    listing = Listing.objects.get(id=listing_id)
+    listing = get_object_or_404(Listing, id=listing_id)
     user = request.user
     
     if request.method == "POST":
         action = request.POST.get("action")
         if action == "add":
-            request.user.watchlist.add(listing)
-        elif action == "bid":
+            user.watchlist.add(listing)
+        if action == "remove":
+            user.watchlist.remove(listing)
+        if action == "bid":
             pass
     
     return render(request, "auctions/listing.html", {
-        "user": request.user,
+        "user": user,
         "listing": listing,
         "display": {
             "Item ID": listing.id,
@@ -118,10 +120,9 @@ def listing(request, listing_id):
     })
 
 def watchlist(request, username):
-    user = request.user
     return render(request, "auctions/watchlist.html", {
-        "user": user,
-        "watchlist": user.watchlist.all()
+        "user": request.user,
+        "watchlist": request.user.watchlist.all()
     })
 
 def bid(request, listing_id):
