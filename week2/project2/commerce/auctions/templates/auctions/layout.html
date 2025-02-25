@@ -29,7 +29,7 @@
                             <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'create' %}btn-outline-light{% endif %}" href="{% url 'create' %}">Create Listing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'watchlist' %}btn-outline-light{% endif %}" href="{% url 'watchlist' user.id%}">Watchlist</a>
+                            <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'watchlist' %}btn-outline-light{% endif %}" href="{% url 'watchlist' user.username%}">Watchlist</a>
                         </li>
                     {% endif %}
                 </ul>

@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from decimal import Decimal
 
@@ -17,13 +17,9 @@ def index(request):
 
 def login_view(request):
     if request.method == "POST":
-
-        # Attempt to sign user in
-        username = request.POST["username"]
-        password = request.POST["password"]
+        username, password  = request.POST["username"], request.POST["password"]
         user = authenticate(request, username=username, password=password)
 
-        # Check if authentication successful
         if user is not None:
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
@@ -42,18 +38,17 @@ def logout_view(request):
 
 def register(request):
     if request.method == "POST":
+        
         username = request.POST["username"]
         email = request.POST["email"]
-
-        # Ensure password matches confirmation
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
+        
         if password != confirmation:
             return render(request, "auctions/register.html", {
                 "message": "Passwords must match."
             })
 
-        # Attempt to create new user
         try:
             user = User.objects.create_user(username, email, password)
             user.save()
@@ -102,6 +97,7 @@ def create_listing(request):
 
 def listing(request, listing_id):
     listing = Listing.objects.get(id=listing_id)
+    user = request.user
     
     if request.method == "POST":
         action = request.POST.get("action")
@@ -111,6 +107,7 @@ def listing(request, listing_id):
             pass
     
     return render(request, "auctions/listing.html", {
+        "user": request.user,
         "listing": listing,
         "display": {
             "Item ID": listing.id,
@@ -120,10 +117,12 @@ def listing(request, listing_id):
         }
     })
 
-def watchlist(request):
+def watchlist(request, username):
+    user = request.user
     return render(request, "auctions/watchlist.html", {
-        "watchlist": request.user.watchlist.all()
+        "user": user,
+        "watchlist": user.watchlist.all()
     })
 
-def bid(request):
-    pass
+def bid(request, listing_id):
+    return render(request, "auctions/bid.html")
