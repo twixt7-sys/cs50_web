@@ -101,11 +101,15 @@ def listing(request, listing_id):
     
     if request.method == "POST":
         action = request.POST.get("action")
-        if action == "add":
+        if action == "Add to Watchlist":
             user.watchlist.add(listing)
-        if action == "remove":
+        elif action == "Remove from Watchlist":
             user.watchlist.remove(listing)
-        if action == "bid":
+        elif action == "Comment":
+            pass
+        elif action == "Bid":
+            pass
+        elif action == "Close Bid":
             pass
     
     return render(request, "auctions/listing.html", {

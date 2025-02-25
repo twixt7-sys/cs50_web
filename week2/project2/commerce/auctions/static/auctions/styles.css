@@ -1,3 +1,7 @@
+body, html {
+  background-color: lightcyan;
+}
+
 #body {
   background-color: lightcyan;
   padding: 25px;
