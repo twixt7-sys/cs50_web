@@ -57,6 +57,7 @@ body, html {
 }
 #active-listings .row a div #watchlist-badge, #watchlist .row a div #watchlist-badge {
   font-size: small;
+  right: 10px;
 }
 #active-listings .row a span, #watchlist .row a span {
   opacity: 30%;
