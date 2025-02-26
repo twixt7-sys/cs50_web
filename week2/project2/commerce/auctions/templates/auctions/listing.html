@@ -28,27 +28,29 @@
                     <li class="list-group-item"><strong>{{ key }}</strong>: {{ value }}</li>
                 {% endfor %}
             </ul>
-            <form class="card-body" method="POST" action="{% url 'listing' listing.id %}">
+            <form class="card-body w-100" method="POST" action="{% url 'listing' listing.id %}">
                 {% csrf_token %}
                 {% if user.is_authenticated %}
-                    <button class="card-link btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" 
-                    aria-expanded="false" aria-controls="collapseExample">
-                        Bid
-                    </button>
-                    <div class="collapse" id="collapseExample">
+                    <div class="collapse w-100 p-3" id="collapseExample">
                         <div class="card card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                            Insert form here
                         </div>
                     </div>
-                    {% if listing not in user.watchlist.all %}
-                        <input name="action" type="submit" class="card-link btn btn-primary" value="Add to Watchlist">
-                    {% else %}
-                        <input name="action" type="submit" class="card-link btn btn-danger" value="Remove from Watchlist">
-                    {% endif %}
-                    <input name="action" type="submit" class="card-link btn btn-primary" value="Comment">
-                    {% if user.id == listing.user.id %}
-                        <input name="action" type="submit" class="card-link btn btn-danger" value="Close Bid">
-                    {% endif %}
+                    <div class="w-100 text-center mt-3">
+                        <button class="card-link btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" 
+                        aria-expanded="false" aria-controls="collapseExample">
+                            Bid
+                        </button>
+                        {% if listing not in user.watchlist.all %}
+                            <input name="action" type="submit" class="card-link btn btn-primary" value="Add to Watchlist">
+                        {% else %}
+                            <input name="action" type="submit" class="card-link btn btn-danger" value="Remove from Watchlist">
+                        {% endif %}
+                        <input name="action" type="submit" class="card-link btn btn-primary" value="Comment">
+                        {% if user.id == listing.user.id %}
+                            <input name="action" type="submit" class="card-link btn btn-danger" value="Close Bid">
+                        {% endif %}
+                    </div>
                 {% endif %}
             </form>
         </div>
