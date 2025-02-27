@@ -1,6 +1,6 @@
 body, html {
     background-color: lightcyan;
-    width: 100vw;
+    width: 100%;
 }
 
 #body{
@@ -43,9 +43,19 @@ body, html {
 #active-listings, #watchlist {
     .row {
         a {
-            width: 19rem;
+            width: 18rem;
             text-decoration: none;
             color: inherit;
+
+            #watchlist-badge {
+                height: 40px;
+                width: 40px;
+                svg {
+                    height: 80%;
+                    width: 80%;
+                }
+            }
+
             div{
                 img {
                     height: 115px;
@@ -53,15 +63,10 @@ body, html {
                     object-fit: contain;
                     margin-top: 15px;
                 }
-                #watchlist-badge{
-                    font-size: small;
-                    right: 10px;
-                }
             }
             
-            span {
-                opacity: 30%;
-                
+            #success-badge {
+                opacity: 50%;
             }
             
         }

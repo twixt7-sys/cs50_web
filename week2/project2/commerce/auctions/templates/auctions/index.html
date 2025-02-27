@@ -2,15 +2,12 @@
 
 {% block body %}
     <div id="active-listings" class="w-100">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             {% for listing in active_listings %}
-            <div class="col btn btn-light d-flex justify-content-center align-items-center">
-                <a href="{% url 'listing' listing.id %}" class="card shadow-sm">
-                    <span class="badge badge-success">Active</span>
-                    <div class="w-100 position-relative">
-                        <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
-                        {% if listing in user.watchlist.all %}
-                        <span id="watchlist-badge" class="badge badge-primary badge-pill position-absolute m-2 bg-secondary">
+            <div class="col btn btn-light align-items-center flex-grow-0">
+                <a href="{% url 'listing' listing.id %}" class="card shadow-sm m-3">
+                    {% if listing in user.watchlist.all %}
+                        <span id="watchlist-badge" class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-white border-4 rounded-circle d-flex justify-content-center align-items-center z-3">
                             <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                                 viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" width="20" height="20">
                                 <path fill="#ffffff" d="M63.714,30.516C63.347,29.594,54.448,8,31.999,8S0.651,29.594,0.284,30.516
@@ -18,7 +15,10 @@
                                     C64.093,32.531,64.093,31.469,63.714,30.516z M31.999,40c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.417,40,31.999,40z"/>
                             </svg>
                         </span>
-                        {% endif %}
+                    {% endif %}
+                    <span id="success-badge" class="badge text-bg-success m-2 z-0">Active</span>
+                    <div class="w-100 position-relative">
+                        <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>

@@ -1,6 +1,6 @@
 body, html {
   background-color: lightcyan;
-  width: 100vw;
+  width: 100%;
 }
 
 #body {
@@ -39,9 +39,17 @@ body, html {
 }
 
 #active-listings .row a, #watchlist .row a {
-  width: 19rem;
+  width: 18rem;
   text-decoration: none;
   color: inherit;
+}
+#active-listings .row a #watchlist-badge, #watchlist .row a #watchlist-badge {
+  height: 40px;
+  width: 40px;
+}
+#active-listings .row a #watchlist-badge svg, #watchlist .row a #watchlist-badge svg {
+  height: 80%;
+  width: 80%;
 }
 #active-listings .row a div img, #watchlist .row a div img {
   height: 115px;
@@ -49,12 +57,8 @@ body, html {
   object-fit: contain;
   margin-top: 15px;
 }
-#active-listings .row a div #watchlist-badge, #watchlist .row a div #watchlist-badge {
-  font-size: small;
-  right: 10px;
-}
-#active-listings .row a span, #watchlist .row a span {
-  opacity: 30%;
+#active-listings .row a #success-badge, #watchlist .row a #success-badge {
+  opacity: 50%;
 }
 
 #login, #logout {
