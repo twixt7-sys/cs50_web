@@ -4,10 +4,10 @@
     <div id="active-listings" class="w-100">
         <div class="row d-flex justify-content-center">
             {% for listing in active_listings %}
-            <div class="col btn btn-light align-items-center flex-grow-0 rounded-5 m-1">
-                <a href="{% url 'listing' listing.id %}" class="card shadow m-3 border-5 border-info border-opacity-50 rounded-4 bg-white bg-gradient">
+            <div class="col btn btn-light btn align-items-center flex-grow-0 rounded-4 m-3">
+                <a href="{% url 'listing' listing.id %}" class="card shadow-sm border-5 border-info border-opacity-50 rounded-4 bg-white bg-gradient">
                     {% if listing in user.watchlist.all %}
-                        <span id="watchlist-badge" class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-white border-4 rounded-circle d-flex justify-content-center align-items-center z-3">
+                        <span id="watchlist-badge" class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-white border-4 rounded-circle d-flex justify-content-center align-items-center z-3 bg-gradient">
                             <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                                 viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" width="20" height="20">
                                 <path fill="#ffffff" d="M63.714,30.516C63.347,29.594,54.448,8,31.999,8S0.651,29.594,0.284,30.516
