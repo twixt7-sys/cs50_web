@@ -1,10 +1,10 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div id="active-listings">
+    <div id="active-listings" class="w-100">
         <div class="row">
             {% for listing in active_listings %}
-            <div class="col-sm-0.5 btn btn-light">
+            <div class="col btn btn-light d-flex justify-content-center align-items-center">
                 <a href="{% url 'listing' listing.id %}" class="card shadow-sm">
                     <span class="badge badge-success">Active</span>
                     <div class="w-100 position-relative">
