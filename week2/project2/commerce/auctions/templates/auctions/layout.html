@@ -9,7 +9,7 @@
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <div id="header" class="bg-primary shadow-sm p-3">
+        <div id="header" class="bg-primary bg-gradient shadow-sm p-3">
             <div id="title">
                 <h1>Auctions</h1>
                 <div>
@@ -23,11 +23,21 @@
             <div id="nav">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'index' %}btn-outline-light{% endif %}" href="{% url 'index' %}">Active Listings</a>
+                        <a class="btn btn-primary font-weight-bold
+                        {% if request.resolver_match.url_name == 'index' %}
+                            btn-outline-light
+                        {% endif %} bg-opacity-0"
+                        href="{% url 'index' %}">
+                            Active Listings
+                        </a>
                     </li>
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'create' %}btn-outline-light{% endif %}" href="{% url 'create' %}">Create Listing</a>
+                            <a class="btn btn-primary font-weight-bold
+                            {% if request.resolver_match.url_name == 'create' %}
+                                btn-outline-light
+                            {% endif %} bg-opacity-0"
+                            href="{% url 'create' %}">Create Listing</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'watchlist' %}btn-outline-light{% endif %}" href="{% url 'watchlist' user.username%}">Watchlist</a>
