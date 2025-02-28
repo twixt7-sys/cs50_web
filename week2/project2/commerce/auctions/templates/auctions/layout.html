@@ -23,9 +23,11 @@
             <div id="nav">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="btn btn-primary font-weight-bold
+                        <a class="
                         {% if request.resolver_match.url_name == 'index' %}
-                            btn-outline-light
+                            btn btn-outline-light
+                        {% else %}
+                            btn btn-outline-primary text-white font-weight-bold border-0
                         {% endif %} bg-opacity-0"
                         href="{% url 'index' %}">
                             Active Listings
@@ -33,14 +35,26 @@
                     </li>
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="btn btn-primary font-weight-bold
+                            <a class="
                             {% if request.resolver_match.url_name == 'create' %}
-                                btn-outline-light
-                            {% endif %} bg-opacity-0"
-                            href="{% url 'create' %}">Create Listing</a>
+                                btn btn-outline-light
+                            {% else %}
+                                btn btn-outline-primary text-white font-weight-bold border-0
+                            {% endif %}"
+                            href="{% url 'create' %}">
+                                Create Listing
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary font-weight-bold {% if request.resolver_match.url_name == 'watchlist' %}btn-outline-light{% endif %}" href="{% url 'watchlist' user.username%}">Watchlist</a>
+                            <a class="
+                            {% if request.resolver_match.url_name == 'watchlist' %}
+                                btn btn-outline-light
+                            {% else %}
+                                btn btn-outline-primary text-white font-weight-bold border-0
+                            {% endif %}"
+                            href="{% url 'watchlist' user.username%}">
+                                Watchlist
+                            </a>
                         </li>
                     {% endif %}
                 </ul>

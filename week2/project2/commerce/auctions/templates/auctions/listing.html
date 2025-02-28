@@ -7,11 +7,11 @@
                 Active
             </div>
             <div id="cardhead" class="w-100 d-flex justify-content-center align-items-center pt-4 pb-5">
-                <div id="img-container w-50">
+                <div id="img-container" class="justify-content-center align-items-center">
                     <img src="{{ listing.image_url }}" alt="{{ listing.name }}"
                     class="w-75 h-75">
                 </div>
-                <div id="main-info" class="card-body w-50">
+                <div id="main-info" class="card-body d-flex justify-content-center align-items-center">
                     <div>
                         <h3 class="card-title"> <strong>
                             {{listing.name}} <br>
@@ -26,7 +26,14 @@
             </div>
             <ul id="sub-contents" class="list-group">
                 {% for key, value in display.items %}
-                    <li class="list-group-item"><strong>{{ key }}</strong>: {{ value }}</li>
+                    <ul class="row-cols-3 list-group list-group-horizontal-sm">
+                        <li class="list-group-item">
+                            <strong>{{ key }}</strong>: 
+                        </li>
+                        <li class="list-group-item flex-fill">
+                            {{ value }}
+                        </li>
+                    </ul>
                 {% endfor %}
             </ul>
             <form class="card-body w-100" method="POST" action="{% url 'listing' listing.id %}">
