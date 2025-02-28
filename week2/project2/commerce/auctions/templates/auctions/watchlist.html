@@ -1,14 +1,14 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div id="watchlist">
-        <div class="row">
-            {% for listing in watchlist %}
-            <div class="col-sm-0.5 btn btn-light">
-                <a href="{% url 'listing' listing.id %}" class="card shadow-sm">
-                    <span class="badge badge-success">Active</span>
-                    <div>
-                        <img src="{{ listing.image_url }}" alt="{{listing.name}}">
+    <div id="watchlist" class="w-100">
+        <div class="row d-flex justify-content-center">
+            {% for listing in user.watchlist.all %}
+            <div class="col btn btn-light btn align-items-center flex-grow-0 rounded-4 m-3">
+                <a href="{% url 'listing' listing.id %}" class="card shadow-sm border-5 border-info border-opacity-50 rounded-4 bg-white bg-gradient">
+                    <span id="success-badge" class="badge text-bg-success m-2 z-0 rounded-5">Active</span>
+                    <div class="w-100 position-relative">
+                        <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>
@@ -18,7 +18,7 @@
                             <strong>${{ listing.price }}</strong>
                         </p>
                     </div>
-                    <div class="card-footer text-muted ">
+                    <div class="card-footer text-muted p-3">
                         <div id="footer-components">
                             <label>{{listing.user.username}}</label> |
                             <label>{{listing.date}}</label>
@@ -28,11 +28,9 @@
             </div>
             {% empty %}
                 <div class="alert alert-info" role="alert">
-                    There are no listings ni your watchlist.
+                    No Active Listings
                 </div>
             {% endfor %}
         </div>
     </div>
-    <!-- content here -->
-
 {% endblock %}
