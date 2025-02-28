@@ -1,16 +1,17 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div class="d-flex justify-content-center align-items-center min-vh-100">
-        <div id="listing" class="card w-75 p-4 shadow">
-            <div class="alert alert-success w-100 font-weight-bold text-center" role="alert">
+    <div class="d-flex justify-content-center align-items-center w-100">
+        <div id="listing" class="card w-75 p-4 shadow d-flex justify-content-center align-items-center">
+            <div class="alert alert-success w-100 text-center fw-bold fs-5" role="alert">
                 Active
             </div>
-            <div id="cardhead">
-                <div id="img-container">
-                    <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
+            <div id="cardhead" class="w-100 d-flex justify-content-center align-items-center pt-4 pb-5">
+                <div id="img-container w-50">
+                    <img src="{{ listing.image_url }}" alt="{{ listing.name }}"
+                    class="w-75 h-75">
                 </div>
-                <div id="main-info" class="card-body">
+                <div id="main-info" class="card-body w-50">
                     <div>
                         <h3 class="card-title"> <strong>
                             {{listing.name}} <br>
