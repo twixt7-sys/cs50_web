@@ -78,29 +78,34 @@ body, html {
     margin-right: 50px;
 }
 
-#listing {
-    #cardhead {
-        #img-container {
-            display:flex;
-            flex: 1;
-            max-height: 200px;
-            img {
-                object-fit: contain;
+#parent{
+    #listing, #comment {
+        width: 600px;
+        #cardhead {
+            #img-container {
+                display:flex;
+                flex: 1;
+                min-height: 200px;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+            #main-info {
+                display:flex;
+                flex: 1;
             }
         }
-        #main-info {
-            display:flex;
+        #sub-contents {
+            width: 100%;
+            display: flex;
             flex: 1;
         }
-    }
-    #sub-contents {
-        width: 100%;
-        display: flex;
-        flex: 1;
-    }
-    form {
-        input {
-            opacity: 0.8;
+        form {
+            input {
+                opacity: 0.8;
+            }
         }
-    }
+    }    
 }

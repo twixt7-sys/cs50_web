@@ -66,24 +66,29 @@ body, html {
   margin-right: 50px;
 }
 
-#listing #cardhead #img-container {
+#parent #listing, #parent #comment {
+  width: 600px;
+}
+#parent #listing #cardhead #img-container, #parent #comment #cardhead #img-container {
   display: flex;
   flex: 1;
-  max-height: 200px;
+  min-height: 200px;
 }
-#listing #cardhead #img-container img {
+#parent #listing #cardhead #img-container img, #parent #comment #cardhead #img-container img {
+  height: 100%;
+  width: 100%;
   object-fit: contain;
 }
-#listing #cardhead #main-info {
+#parent #listing #cardhead #main-info, #parent #comment #cardhead #main-info {
   display: flex;
   flex: 1;
 }
-#listing #sub-contents {
+#parent #listing #sub-contents, #parent #comment #sub-contents {
   width: 100%;
   display: flex;
   flex: 1;
 }
-#listing form input {
+#parent #listing form input, #parent #comment form input {
   opacity: 0.8;
 }
 
