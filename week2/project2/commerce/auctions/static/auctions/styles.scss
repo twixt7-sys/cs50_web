@@ -79,8 +79,10 @@ body, html {
 }
 
 #parent{
+    margin-top: -25px;
     #listing, #comment {
         width: 600px;
+        height: 650px;
         #cardhead {
             #img-container {
                 display:flex;
@@ -106,6 +108,9 @@ body, html {
             input {
                 opacity: 0.8;
             }
+        }
+        #comment-field{
+            
         }
     }    
 }
