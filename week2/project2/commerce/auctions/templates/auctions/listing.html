@@ -67,7 +67,13 @@
             <div id="comment-field" class="d-flex flex-column w-100" style="height: 600px;">
                 <div id="comment-list" class="flex-grow-1 w-100 m-1 flex-column overflow-auto" style="min-height: 525px;">
                     {% for c in listing.listing_comments.all %}
-                        <div class="alert alert-info w-100" role="alert">
+                        <div class="
+                        {% if c.commenter == user %}
+                        alert alert-primary w-100
+                        {% else %}
+                        alert alert-info w-100
+                        {% endif %}
+                        " role="alert">
                             <strong>{{ c.commenter.username }}:</strong>
                             {{ c.content }}
                         </div>
