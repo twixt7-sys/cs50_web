@@ -39,24 +39,24 @@
             <form class="card-body w-100" method="POST" action="{% url 'listing' listing.id %}">
                 {% csrf_token %}
                 {% if user.is_authenticated %}
-                    <div class="collapse w-100 p-3" id="collapseExample">
-                        <div class="card card-body">
-                            Insert form here
-                        </div>
-                    </div>
                     <div class="w-100 text-center mt-3">
-                        <button class="card-link btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" 
-                        aria-expanded="false" aria-controls="collapseExample">
-                            Bid
-                        </button>
+                        {% if user.id == listing.user.id %}
+                            <input name="action" type="submit" class="card-link btn btn-danger" value="Close Bid">
+                        {% else %}
+                            <div class="collapse w-100 p-3" id="collapseExample">
+                                <div class="card card-body">
+                                    Insert form here
+                                </div>
+                            </div>
+                            <button class="card-link btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" 
+                            aria-expanded="false" aria-controls="collapseExample">
+                                Bid
+                            </button>
+                        {% endif %}
                         {% if listing not in user.watchlist.all %}
                             <input name="action" type="submit" class="card-link btn btn-primary" value="Add to Watchlist">
                         {% else %}
                             <input name="action" type="submit" class="card-link btn btn-danger" value="Remove from Watchlist">
-                        {% endif %}
-                        <input name="action" type="submit" class="card-link btn btn-primary" value="Comment">
-                        {% if user.id == listing.user.id %}
-                            <input name="action" type="submit" class="card-link btn btn-danger" value="Close Bid">
                         {% endif %}
                     </div>
                 {% endif %}
@@ -67,15 +67,21 @@
             <div id="comment-field" class="d-flex flex-column w-100" style="height: 600px;">
                 <div id="comment-list" class="flex-grow-1 w-100 m-1 flex-column overflow-auto" style="min-height: 525px;">
                     {% for c in listing.listing_comments.all %}
-                        <div class="
-                        {% if c.commenter == user %}
-                        alert alert-primary w-100
+                        {% if c.commenter != user %}
+                            <label><strong>{{ c.commenter.username }}</label></strong>
                         {% else %}
-                        alert alert-info w-100
+                            <label class="w-100 text-end"><strong>{{ c.commenter.username }}</label></strong>
                         {% endif %}
-                        " role="alert">
-                            <strong>{{ c.commenter.username }}:</strong>
-                            {{ c.content }}
+                        <div class="d-flex {% if c.commenter == user %} justify-content-end {% else %} justify-content-start {% endif %}">
+                            <div class="{% if c.commenter == user %}
+                                alert alert-primary text-end d-inline-block w-auto
+                            {% else %}
+                                alert alert-info w-100 d-inline-block w-auto
+                            {% endif %}">
+                                <div>
+                                    {{ c.content }}
+                                </div>
+                            </div>
                         </div>
                     {% empty %}
                         <div class="alert alert-info" role="alert">
@@ -83,7 +89,7 @@
                         </div>
                     {% endfor %}
                 </div>
-                <form id="comment-form" class="w-100 m-1" method="POST">
+                <form id="comment-form" class="w-100 m-1" method="POST" action="{% url 'listing' listing.id %}">
                     {% csrf_token %}
                     <div id="comment-input" class="d-flex align-items-center w-100 p-2">
                         <input name="comment" type="text" class="form-control me-2" placeholder="Comment here">
