@@ -76,7 +76,7 @@ body, html {
 #parent #listing #cardhead #img-container, #parent #comment #cardhead #img-container {
   display: flex;
   flex: 1;
-  min-height: 200px;
+  height: 200px;
 }
 #parent #listing #cardhead #img-container img, #parent #comment #cardhead #img-container img {
   height: 100%;
@@ -94,6 +94,11 @@ body, html {
 }
 #parent #listing form input, #parent #comment form input {
   opacity: 0.8;
+}
+#parent #listing #comment-field #comment-list, #parent #comment #comment-field #comment-list {
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /*# sourceMappingURL=styles.css.map */

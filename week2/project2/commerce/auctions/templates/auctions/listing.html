@@ -63,11 +63,12 @@
             </form>
         </div>
 
-        <div id="comment" class="card p-4 shadow d-flex  justify-content-center align-items-center mb-3">
-            <div id="comment-field" class="row-cols-2 d-flex flex-grow-1 w-100 flex-column">
-                <div id="comment-list" class="row-cols-2 bg-secondary d-flex flex-grow-1 w-100 m-1 flex-column">
+        <div id="comment" class="card p-4 shadow d-flex justify-content-center align-items-center">
+            <div id="comment-field" class="d-flex flex-column w-100" style="height: 600px;">
+                <div id="comment-list" class="flex-grow-1 w-100 m-1 flex-column overflow-auto" style="min-height: 525px;">
                     {% for c in listing.listing_comments.all %}
                         <div class="alert alert-info w-100" role="alert">
+                            <strong>{{ c.commenter.username }}:</strong>
                             {{ c.content }}
                         </div>
                     {% empty %}
@@ -85,5 +86,4 @@
                 </form>
             </div>
         </div>
-    </div>
 {% endblock %}

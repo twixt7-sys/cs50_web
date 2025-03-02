@@ -87,7 +87,7 @@ body, html {
             #img-container {
                 display:flex;
                 flex: 1;
-                min-height: 200px;
+                height: 200px;
                 img {
                     height: 100%;
                     width: 100%;
@@ -110,7 +110,11 @@ body, html {
             }
         }
         #comment-field{
-            
+            #comment-list {
+                max-height: 100px;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
         }
     }    
 }

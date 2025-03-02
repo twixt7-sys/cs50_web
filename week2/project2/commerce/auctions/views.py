@@ -116,6 +116,7 @@ def listing(request, listing_id):
                     commenter=user,
                     listing=listing,
                 )
+            return redirect("listing", listing_id=listing_id)
         elif action == "Bid":
             pass
         elif action == "Close Bid":
