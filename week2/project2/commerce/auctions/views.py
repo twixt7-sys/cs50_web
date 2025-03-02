@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from decimal import Decimal
 
-from .models import User, Listing
+from .models import User, Listing, Bid, Comment
 
 
 def index(request):
@@ -107,7 +107,15 @@ def listing(request, listing_id):
         elif action == "Remove from Watchlist":
             user.watchlist.remove(listing)
         elif action == "Comment":
-            pass
+            comment_text = request.POST.get("comment")
+            print("Commenting")
+            if comment_text:
+                print("Commenting")
+                Comment.objects.create(
+                    content=comment_text,
+                    commenter=user,
+                    listing=listing,
+                )
         elif action == "Bid":
             pass
         elif action == "Close Bid":

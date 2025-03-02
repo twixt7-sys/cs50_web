@@ -29,5 +29,5 @@ class Bid(m.Model): # fields: amount, bidder, listing
 
 class Comment(m.Model): # fields: content, commenter, listing
     content = m.TextField()
-    commenter = m.ForeignKey(User, on_delete=m.CASCADE, related_name="comments")
-    listing = m.ForeignKey(Listing, on_delete=m.CASCADE, related_name="comments")
+    commenter = m.ForeignKey(User, on_delete=m.CASCADE, related_name="user_comments")
+    listing = m.ForeignKey(Listing, on_delete=m.CASCADE, related_name="listing_comments")

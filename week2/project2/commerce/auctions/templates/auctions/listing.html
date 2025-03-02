@@ -65,14 +65,20 @@
 
         <div id="comment" class="card p-4 shadow d-flex  justify-content-center align-items-center mb-3">
             <div id="comment-field" class="row-cols-2 d-flex flex-grow-1 w-100 flex-column">
-                <div id="comment-list" class="row-cols-2 bg-secondary d-flex flex-grow-1 w-100 m-1 ">
-                    <div>
-                        new code here
-                    </div>
+                <div id="comment-list" class="row-cols-2 bg-secondary d-flex flex-grow-1 w-100 m-1 flex-column">
+                    {% for c in listing.listing_comments.all %}
+                        <div class="alert alert-info w-100" role="alert">
+                            {{ c.content }}
+                        </div>
+                    {% empty %}
+                        <div class="alert alert-info" role="alert">
+                            No comments
+                        </div>
+                    {% endfor %}
                 </div>
-                <form id="comment-form" class="w-100 m-1">
+                <form id="comment-form" class="w-100 m-1" method="POST">
                     {% csrf_token %}
-                    <div id="comment-input" class="d-flex align-items-center w-100 p-2" method="post">
+                    <div id="comment-input" class="d-flex align-items-center w-100 p-2">
                         <input name="comment" type="text" class="form-control me-2" placeholder="Comment here">
                         <input name="action" type="submit" class="btn btn-primary" value="Comment">
                     </div>
