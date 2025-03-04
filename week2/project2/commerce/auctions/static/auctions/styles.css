@@ -9,7 +9,7 @@ body, html {
   padding-top: 125px;
 }
 
-#header {
+header {
   display: flex;
   align-items: center;
   padding-top: 10px;
@@ -21,18 +21,18 @@ body, html {
   background-color: inherit;
   z-index: 1000;
 }
-#header #title {
+header #title {
   padding-left: 10px;
 }
-#header #title h1 {
+header #title h1 {
   color: white;
 }
-#header #title div {
+header #title div {
   color: lightblue;
   font-size: smaller;
   margin-top: -10px;
 }
-#header #nav {
+header #nav {
   padding-left: 50px;
   display: flex;
   flex: 1;
@@ -70,8 +70,18 @@ body, html {
   margin-top: -25px;
 }
 #parent #listing, #parent #comment {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  gap: 10px;
   width: 600px;
   overflow: visible;
+  justify-content: center;
+  align-items: center;
 }
 #parent #listing #cardhead #img-container, #parent #comment #cardhead #img-container {
   display: flex;
@@ -99,6 +109,21 @@ body, html {
   max-height: 100px;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+#create {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  gap: 10px;
+  width: 600px;
+  overflow: visible;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -9,7 +9,7 @@
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <div id="header" class="bg-primary bg-gradient shadow p-3">
+        <header class="bg-primary bg-gradient shadow p-3">
             <div id="title">
                 <h1>Auctions</h1>
                 <div>
@@ -20,7 +20,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div id="nav">
+            <nav>
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a class="
@@ -74,11 +74,11 @@
                         </ul>
                     </div>
                 {% endif %}
-            </div>
-        </div>
-        <div id="body">
+                </nav>
+        </header>
+        <main id="body">
             {% block body %}
             {% endblock %}
-        </div>
+        </main>
     </body>
 </html>

@@ -1,3 +1,18 @@
+@mixin card-template{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    gap: 10px;
+    width: 600px;
+    overflow: visible;
+    justify-content: center;
+    align-items: center;
+}
+
 body, html {
     background-color: lightcyan;
     width: 100%;
@@ -9,7 +24,7 @@ body, html {
     padding-top: 125px;
 }
 
-#header {
+header {
     display: flex;
     align-items: center;
     padding-top: 10px;
@@ -81,8 +96,7 @@ body, html {
 #parent{
     margin-top: -25px;
     #listing, #comment {
-        width: 600px;
-        overflow: visible;
+        @include card-template;
         #cardhead {
             #img-container {
                 display:flex;
@@ -117,4 +131,8 @@ body, html {
             }
         }
     }    
+}
+
+#create {
+    @include card-template;
 }
