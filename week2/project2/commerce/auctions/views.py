@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
@@ -120,7 +121,13 @@ def listing(request, listing_id):
         elif action == "Bid":
             pass
         elif action == "Close Bid":
-            pass
+            listing.is_active = False
+            listing.save()
+            return redirect("listing", listing_id=listing_id)
+        elif action == "Open Bid":
+            listing.is_active = True
+            listing.save()
+            return redirect("listing", listing_id=listing_id)
     
     return render(request, "auctions/listing.html", {
         "user": user,
@@ -133,7 +140,8 @@ def listing(request, listing_id):
         }
     })
 
-def watchlist(request, username):
+@login_required
+def watchlist(request):
     return render(request, "auctions/watchlist.html", {
         "user": request.user,
         "watchlist": request.user.watchlist.all()
