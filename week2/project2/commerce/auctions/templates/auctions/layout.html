@@ -62,12 +62,14 @@
                     <a id="logout" class="btn btn-danger" href="{% url 'logout' %}">Log Out</a>
                 {% else %}
                     <div id="login">
-                        <ul class="nav">
+                        <ul class="nav gap-1">
                             <li class="nav-item">
-                                <a class="btn btn-primary {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'login' %}">Log In</a>
+                                <a class="btn btn-primary btn-outline-info text-white
+                                {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'login' %}">Log In</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-primary {% if request.resolver_match.url_name == 'register' %}active{% endif %}" href="{% url 'register' %}">Register</a>
+                                <a class="btn btn-primary btn-outline-info text-white
+                                {% if request.resolver_match.url_name == 'register' %}active{% endif %}" href="{% url 'register' %}">Register</a>
                             </li>
                         </ul>
                     </div>
