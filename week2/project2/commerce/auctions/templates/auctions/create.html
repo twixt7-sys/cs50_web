@@ -1,21 +1,24 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div id="create" class="card">
-        <form method="POST" action="{% url 'create' %}">
-            {% csrf_token %}
+    <main>
+        <div id="create" class="card shadow">
+            <form method="POST" action="{% url 'create' %}">
+                {% csrf_token %}
 
-            {% with fields=data %}
-                {% for field in fields %}
-                    <div class="form-group">
-                        <label>{{ field.label }}</label>
-                        <input class="form-control" type="{{ field.type }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}">
-                    </div>
-                {% endfor %}
-            {% endwith %}
-
-            <button name="action" type="submit" value="save" class="btn btn-primary">Save</button>
-            <button name="action" type="submit" value="cancel" class="btn btn-secondary">Cancel</button>
-        </form>
-    </div>
+                {% with fields=data %}
+                    {% for field in fields %}
+                        <div class="form-group">
+                            <label>{{ field.label }}</label>
+                            <input class="form-control" type="{{ field.type }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}">
+                        </div>
+                    {% endfor %}
+                {% endwith %}
+                <div id="button-group">
+                    <button name="action" type="submit" value="save" class="btn btn-primary">Create Listing</button>
+                    <button name="action" type="submit" value="cancel" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </main>
 {% endblock %}

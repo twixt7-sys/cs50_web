@@ -3,8 +3,7 @@
     flex-direction: column;
     border: 1px solid lightblue;
     border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
+    padding: 30px;
     background-color: white;
     gap: 10px;
     width: 600px;
@@ -18,10 +17,14 @@ body, html {
     width: 100%;
 }
 
-#body{
+main{
     background-color: lightcyan;
-    padding: 25px;
-    padding-top: 125px;
+    padding: 0px 25px;
+    width: 100%;
+}
+
+#block{
+    height: 125px;
 }
 
 header {
@@ -48,7 +51,7 @@ header {
             margin-top: -10px;
         }
     }
-    #nav {
+    nav {
         padding-left: 50px;
         display: flex;
         flex: 1;
@@ -135,4 +138,18 @@ header {
 
 #create {
     @include card-template;
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        #button-group {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            button {
+                width: 45%;
+            }
+        }
+    }
 }
