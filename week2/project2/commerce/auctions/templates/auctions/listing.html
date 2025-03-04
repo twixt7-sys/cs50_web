@@ -1,6 +1,7 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
+    <main>
     <div id="parent" class="row d-flex">
         <div id="listing" class="colM card p-4 shadow d-flex justify-content-center align-items-center m-3">
             {% if listing.is_active %}
@@ -110,4 +111,5 @@
                 </form>
             </div>
         </div>
+    </main>
 {% endblock %}

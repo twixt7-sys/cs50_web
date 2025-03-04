@@ -1,15 +1,10 @@
 @mixin card-template{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid lightblue;
     border-radius: 10px;
     padding: 30px;
     background-color: white;
     gap: 10px;
     width: 600px;
     overflow: visible;
-    justify-content: center;
-    align-items: center;
 }
 
 body, html {
@@ -18,12 +13,15 @@ body, html {
 }
 
 main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: lightcyan;
     padding: 0px 25px;
     width: 100%;
 }
 
-#block{
+#block {
     height: 125px;
 }
 

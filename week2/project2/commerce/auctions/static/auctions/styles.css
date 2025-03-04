@@ -4,6 +4,9 @@ body, html {
 }
 
 main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: lightcyan;
   padding: 0px 25px;
   width: 100%;
@@ -74,17 +77,12 @@ header nav {
   margin-top: -25px;
 }
 #parent #listing, #parent #comment {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid lightblue;
   border-radius: 10px;
   padding: 30px;
   background-color: white;
   gap: 10px;
   width: 600px;
   overflow: visible;
-  justify-content: center;
-  align-items: center;
 }
 #parent #listing #cardhead #img-container, #parent #comment #cardhead #img-container {
   display: flex;
@@ -115,17 +113,12 @@ header nav {
 }
 
 #create {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid lightblue;
   border-radius: 10px;
   padding: 30px;
   background-color: white;
   gap: 10px;
   width: 600px;
   overflow: visible;
-  justify-content: center;
-  align-items: center;
 }
 #create form {
   width: 100%;
