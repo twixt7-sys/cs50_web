@@ -71,7 +71,7 @@ body, html {
 }
 #parent #listing, #parent #comment {
   width: 600px;
-  height: 650px;
+  overflow: visible;
 }
 #parent #listing #cardhead #img-container, #parent #comment #cardhead #img-container {
   display: flex;

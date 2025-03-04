@@ -3,9 +3,15 @@
 {% block body %}
     <div id="parent" class="row d-flex justify-content-center align-items-center w-100">
         <div id="listing" class="colM card p-4 shadow d-flex justify-content-center align-items-center m-3">
-            <div class="alert alert-success w-100 text-center fw-bold fs-5" role="alert">
-                Active
-            </div>
+            {% if listing.is_active %}
+                <div class="alert alert-success w-100 text-center fw-bold fs-5" role="alert">
+                    Active
+                </div>
+            {% else %}
+                <div class="alert alert-danger w-100 text-center fw-bold fs-5" role="alert">
+                    Closed
+                </div>
+            {% endif %}
             <div id="cardhead" class="w-100 d-flex justify-content-center align-items-center pt-4 pb-5">
                 <div id="img-container" class="justify-content-center align-items-center">
                     <img src="{{ listing.image_url }}" alt="{{ listing.name }}"
@@ -41,17 +47,22 @@
                 {% if user.is_authenticated %}
                     <div class="w-100 text-center mt-3">
                         {% if user.id == listing.user.id %}
-                            <input name="action" type="submit" class="card-link btn btn-danger" value="Close Bid">
+                            {% if listing.is_active %}
+                                <input name="action" type="submit" class="card-link btn btn-danger" value="Close Bid">
+                            {% else %}
+                                <input name="action" type="submit" class="card-link btn btn-primary" value="Open Bid">
+                            {% endif %}
                         {% else %}
-                            <div class="collapse w-100 p-3" id="collapseExample">
-                                <div class="card card-body">
-                                    Insert form here
+                            {% if listing.is_active %}
+                                <div class="collapse w-100 p-3" id="collapseExample">
+                                    <div class="card card-body">
+                                        Insert form here
+                                    </div>
                                 </div>
-                            </div>
-                            <button class="card-link btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" 
-                            aria-expanded="false" aria-controls="collapseExample">
-                                Bid
-                            </button>
+                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    Bid
+                                </button>
+                            {% endif %}
                         {% endif %}
                         {% if listing not in user.watchlist.all %}
                             <input name="action" type="submit" class="card-link btn btn-primary" value="Add to Watchlist">
