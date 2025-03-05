@@ -1,7 +1,6 @@
 @mixin card-template{
     border-radius: 10px;
     padding: 30px;
-    background-color: white;
     gap: 10px;
     width: 600px;
     overflow: visible;
@@ -95,7 +94,6 @@ header {
 }
 
 #parent{
-    margin-top: -25px;
     #listing, #comment {
         @include card-template;
         #cardhead {

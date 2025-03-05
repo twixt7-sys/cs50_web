@@ -2,10 +2,9 @@
 
 {% block body %}
     <main>
-        <div id="create" class="card shadow">
-            <form method="POST" action="{% url 'create' %}">
+        <div id="create">
+            <form method="POST" action="{% url 'create' %}" id="create" class="card shadow">
                 {% csrf_token %}
-
                 {% with fields=data %}
                     {% for field in fields %}
                         <div class="form-group">

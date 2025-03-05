@@ -73,13 +73,9 @@ header nav {
   margin-right: 50px;
 }
 
-#parent {
-  margin-top: -25px;
-}
 #parent #listing, #parent #comment {
   border-radius: 10px;
   padding: 30px;
-  background-color: white;
   gap: 10px;
   width: 600px;
   overflow: visible;
@@ -115,7 +111,6 @@ header nav {
 #create {
   border-radius: 10px;
   padding: 30px;
-  background-color: white;
   gap: 10px;
   width: 600px;
   overflow: visible;
