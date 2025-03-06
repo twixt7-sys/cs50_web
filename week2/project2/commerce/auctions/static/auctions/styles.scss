@@ -1,10 +1,4 @@
-@mixin card-template{
-    border-radius: 10px;
-    padding: 30px;
-    gap: 10px;
-    width: 600px;
-    overflow: visible;
-}
+
 
 body, html {
     background-color: lightcyan;
@@ -57,6 +51,7 @@ header {
 
 #active-listings, #watchlist {
     padding-top: 25px;
+
     .row {
         a {
             width: 18rem;
@@ -94,23 +89,30 @@ header {
     margin-right: 50px;
 }
 
+@mixin card-template{
+    border-radius: 10px;
+    padding: 30px;
+    gap: 10px;
+    width: 600px;
+    overflow: visible;
+    height: 640px;
+}
+
 #parent{
     display: flex;
     justify-content: center;
-    align-items: stretch;
     gap: 20px;
     flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    height:80vh ;
     #listing, #comment {
-        display: flex;
-        flex-direction: column;
-        flex: 1; /* Makes both take equal width if space allows */
-        min-width: 300px; /* Ensures responsiveness */
         @include card-template;
         #cardhead {
             #img-container {
                 display:flex;
                 flex: 1;
-                height: 200px;
+                height: 140px;
                 img {
                     height: 100%;
                     width: 100%;
@@ -134,9 +136,8 @@ header {
         }
         #comment-field{
             #comment-list {
-                max-height: 100px;
+                max-height: 80%;
                 overflow-y: auto;
-                overflow-x: hidden;
             }
         }
     }    

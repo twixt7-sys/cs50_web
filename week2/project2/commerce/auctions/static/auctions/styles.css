@@ -79,25 +79,24 @@ header nav {
 #parent {
   display: flex;
   justify-content: center;
-  align-items: stretch;
   gap: 20px;
   flex-wrap: wrap;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  height: 80vh;
 }
 #parent #listing, #parent #comment {
-  display: flex;
-  flex-direction: column;
-  flex: 1; /* Makes both take equal width if space allows */
-  min-width: 300px; /* Ensures responsiveness */
   border-radius: 10px;
   padding: 30px;
   gap: 10px;
   width: 600px;
   overflow: visible;
+  height: 640px;
 }
 #parent #listing #cardhead #img-container, #parent #comment #cardhead #img-container {
   display: flex;
   flex: 1;
-  height: 200px;
+  height: 140px;
 }
 #parent #listing #cardhead #img-container img, #parent #comment #cardhead #img-container img {
   height: 100%;
@@ -117,9 +116,8 @@ header nav {
   opacity: 0.8;
 }
 #parent #listing #comment-field #comment-list, #parent #comment #comment-field #comment-list {
-  max-height: 100px;
+  max-height: 80%;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
 #create {
@@ -128,6 +126,7 @@ header nav {
   gap: 10px;
   width: 600px;
   overflow: visible;
+  height: 640px;
 }
 #create form {
   width: 100%;
