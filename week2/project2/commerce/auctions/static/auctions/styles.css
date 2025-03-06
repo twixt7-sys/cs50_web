@@ -127,12 +127,17 @@ header nav {
   width: 600px;
   overflow: visible;
   height: 640px;
+  height: 80%;
+}
+#create h3 {
+  text-align: center;
 }
 #create form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  justify-content: center;
 }
 #create form #button-group {
   display: flex;
