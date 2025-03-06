@@ -16,7 +16,11 @@
                             </svg>
                         </span>
                     {% endif %}
-                    <span id="success-badge" class="badge text-bg-success m-2 z-0 rounded-5">Active</span>
+                    {% if listing.is_active %}
+                        <span id="success-badge" class="badge text-bg-success m-2 z-0 rounded-5">Active</span>
+                    {% else %}
+                        <span id="success-badge" class="badge text-bg-danger m-2 z-0 rounded-5">Closed</span>
+                    {% endif %}
                     <div class="w-100 position-relative">
                         <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
                     </div>
