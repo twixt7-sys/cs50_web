@@ -102,6 +102,13 @@ def listing(request, listing_id):
     listing = get_object_or_404(Listing, id=listing_id)
     user = request.user
     
+    # Ensure starting_bid exists
+    if listing.starting_bid is None:
+        listing.starting_bid = Bid.objects.create(amount=0, bidder=listing.user, listing=listing)
+        listing.save()
+    
+    highest_bid_amount = listing.highest_bid.amount if listing.highest_bid else 0
+    
     if request.method == "POST":
         action = request.POST.get("action")
         if action == "Add to Watchlist":
@@ -110,32 +117,29 @@ def listing(request, listing_id):
             user.watchlist.remove(listing)
         elif action == "Comment":
             comment_text = request.POST.get("comment")
-            print("Commenting")
             if comment_text:
-                print("Commenting")
                 Comment.objects.create(
                     content=comment_text,
                     commenter=user,
                     listing=listing,
                 )
             return redirect("listing", listing_id=listing_id)
-        
         elif action == "Place Bid":
             try:
                 bid_amount = float(request.POST.get("bid", 0))
             except ValueError:
                 messages.error(request, "Invalid bid amount.")
                 return redirect("listing", listing_id=listing_id)
-            if bid_amount <= listing.starting_bid.amount or (listing.highest_bid.amount and bid_amount <= listing.highest_bid.amount):
+            
+            if bid_amount <= listing.starting_bid.amount or (listing.highest_bid and bid_amount <= highest_bid_amount):
                 messages.error(request, "Your bid must be higher than the starting bid and the current highest bid.")
             else:
                 new_bid = Bid.objects.create(amount=bid_amount, bidder=user, listing=listing)
                 listing.highest_bid = new_bid
                 listing.save()
                 messages.success(request, "Bid placed successfully.")
-
+            
             return redirect("listing", listing_id=listing_id)
-                
         elif action == "Close Bid":
             listing.is_active = False
             listing.save()
@@ -155,6 +159,7 @@ def listing(request, listing_id):
             "Date added": listing.date
         }
     })
+
 
 @login_required
 def watchlist(request):

@@ -108,7 +108,9 @@ header {
     height:80vh ;
     #listing, #comment {
         @include card-template;
+        margin-bottom: 25px;
         #cardhead {
+            height: 220px;
             #img-container {
                 display:flex;
                 flex: 1;
@@ -136,7 +138,7 @@ header {
         }
         #comment-field{
             #comment-list {
-                max-height: 80%;
+                height: 530px;
                 overflow-y: auto;
             }
         }

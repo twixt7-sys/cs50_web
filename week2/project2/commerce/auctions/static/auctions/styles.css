@@ -92,6 +92,10 @@ header nav {
   width: 600px;
   overflow: visible;
   height: 640px;
+  margin-bottom: 25px;
+}
+#parent #listing #cardhead, #parent #comment #cardhead {
+  height: 220px;
 }
 #parent #listing #cardhead #img-container, #parent #comment #cardhead #img-container {
   display: flex;
@@ -116,7 +120,7 @@ header nav {
   opacity: 0.8;
 }
 #parent #listing #comment-field #comment-list, #parent #comment #comment-field #comment-list {
-  max-height: 80%;
+  height: 530px;
   overflow-y: auto;
 }
 
