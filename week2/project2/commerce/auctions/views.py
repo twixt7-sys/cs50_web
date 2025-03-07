@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from decimal import Decimal
+from django.contrib import messages
 
 from .models import User, Listing, Bid, Comment
 
@@ -118,8 +119,23 @@ def listing(request, listing_id):
                     listing=listing,
                 )
             return redirect("listing", listing_id=listing_id)
-        elif action == "Bid":
-            pass
+        
+        elif action == "Place Bid":
+            try:
+                bid_amount = float(request.POST.get("bid", 0))
+            except ValueError:
+                messages.error(request, "Invalid bid amount.")
+                return redirect("listing", listing_id=listing_id)
+            if bid_amount <= listing.starting_bid.amount or (listing.highest_bid.amount and bid_amount <= listing.highest_bid.amount):
+                messages.error(request, "Your bid must be higher than the starting bid and the current highest bid.")
+            else:
+                new_bid = Bid.objects.create(amount=bid_amount, bidder=user, listing=listing)
+                listing.highest_bid = new_bid
+                listing.save()
+                messages.success(request, "Bid placed successfully.")
+
+            return redirect("listing", listing_id=listing_id)
+                
         elif action == "Close Bid":
             listing.is_active = False
             listing.save()
