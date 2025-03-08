@@ -82,5 +82,24 @@
             
             {% endblock %}
         </main>
+        {% if message %}
+            <!-- Bootstrap Modal -->
+            <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                        <div class="modal-header alert alert-danger">
+                            <p><strong>{{ message }}</strong></p>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                </div>
+            </div>
+            
+            <!-- JavaScript to auto-trigger modal -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+                    messageModal.show();
+                });
+            </script>
+        {% endif %}
     </body>
 </html>
