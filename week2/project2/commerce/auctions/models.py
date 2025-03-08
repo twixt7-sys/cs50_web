@@ -9,6 +9,7 @@ class User(AbstractUser):
         return f"username: {self.username}, email: {self.email}"
 
 class Listing(m.Model):
+    id = m.AutoField(primary_key=True)
     is_active = m.BooleanField(default=True)    
     user = m.ForeignKey(User, on_delete=m.CASCADE, related_name="listings")
     name = m.CharField(max_length=150)

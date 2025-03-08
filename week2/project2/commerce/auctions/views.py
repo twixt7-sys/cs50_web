@@ -85,7 +85,6 @@ def create_listing(request):
                     user = request.user,
                     name = request.POST.get("name"),
                     description = request.POST.get("description"),
-                    price=Decimal(request.POST.get("start_bid") or "0.00"),
                     image_url = request.POST.get("image_url"),
                     category = request.POST.get("category"),
                 )
