@@ -92,7 +92,6 @@ header nav {
   width: 600px;
   overflow: visible;
   height: 640px;
-  margin-bottom: 25px;
 }
 #parent #listing #cardhead, #parent #comment #cardhead {
   height: 220px;
@@ -150,6 +149,10 @@ header nav {
 }
 #create form #button-group button {
   width: 45%;
+}
+
+.login {
+  margin-top: 25px;
 }
 
 /*# sourceMappingURL=styles.css.map */

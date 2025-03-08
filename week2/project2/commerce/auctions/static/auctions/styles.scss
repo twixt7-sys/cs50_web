@@ -108,7 +108,6 @@ header {
     height:80vh ;
     #listing, #comment {
         @include card-template;
-        margin-bottom: 25px;
         #cardhead {
             height: 220px;
             #img-container {
@@ -166,4 +165,8 @@ header {
             }
         }
     }
+}
+
+.login {
+    margin-top: 25px;
 }
