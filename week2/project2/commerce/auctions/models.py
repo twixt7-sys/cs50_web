@@ -21,13 +21,14 @@ class Listing(m.Model):
     highest_bid = m.ForeignKey('Bid', null=True, blank=True, on_delete=m.SET_NULL, related_name="highest_for")
     
     def save(self, *args, **kwargs):
-        if not self.pk:
-            super().save(*args, **kwargs)
-            if not self.starting_bid:
-                default_bid = Bid.objects.create(amount=0, bidder=self.user, listing=self)
-                self.starting_bid = default_bid
-                self.highest_bid = default_bid
-        super().save(*args, **kwargs)
+        is_new = self.pk is None  # Check if the instance is new
+        super().save(*args, **kwargs)  # First save to get a primary key
+
+        if is_new and not self.starting_bid:
+            default_bid = Bid.objects.create(amount=0, bidder=self.user, listing=self)
+            Listing.objects.filter(pk=self.pk).update(starting_bid=default_bid, highest_bid=default_bid)
+
+
 
     def __str__(self):
         return self.name
