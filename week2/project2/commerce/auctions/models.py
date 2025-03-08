@@ -12,7 +12,6 @@ class Listing(m.Model):
     is_active = m.BooleanField(default=True)    
     user = m.ForeignKey(User, on_delete=m.CASCADE, related_name="listings")
     name = m.CharField(max_length=150)
-    price = m.DecimalField(max_digits=10, decimal_places=2)
     description = m.TextField()
     date = m.DateTimeField(auto_now_add=True)
     image_url = m.URLField(null=True, blank=True)
@@ -21,13 +20,14 @@ class Listing(m.Model):
     highest_bid = m.ForeignKey('Bid', null=True, blank=True, on_delete=m.SET_NULL, related_name="highest_for")
     
     def save(self, *args, **kwargs):
-        if not self.pk:  # Only applies when creating a new Listing
-            super().save(*args, **kwargs)  # Save first to get an ID
+        if not self.pk:
+            super().save(*args, **kwargs)
             if not self.starting_bid:
                 default_bid = Bid.objects.create(amount=0, bidder=self.user, listing=self)
                 self.starting_bid = default_bid
-        super().save(*args, **kwargs)  # Save again with the starting_bid set
-    
+                self.highest_bid = default_bid
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
