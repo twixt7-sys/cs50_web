@@ -94,12 +94,12 @@ header nav {
   height: 640px;
 }
 #parent #listing #cardhead, #parent #comment #cardhead {
-  height: 220px;
+  height: 200px;
 }
 #parent #listing #cardhead #img-container, #parent #comment #cardhead #img-container {
   display: flex;
   flex: 1;
-  height: 140px;
+  height: 200px;
 }
 #parent #listing #cardhead #img-container img, #parent #comment #cardhead #img-container img {
   height: 100%;
@@ -111,6 +111,7 @@ header nav {
   flex: 1;
 }
 #parent #listing #sub-contents, #parent #comment #sub-contents {
+  height: 200px;
   width: 100%;
   display: flex;
   flex: 1;

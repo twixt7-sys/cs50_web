@@ -160,15 +160,19 @@ def listing(request, listing_id):
             listing.save()
             return redirect("listing", listing_id=listing_id)
     
-    return render(request, "auctions/listing.html", {
-        "user": user,
-        "listing": listing,
-        "display": {
+    display = {
             "Item ID": listing.id,
             "Uploaded by": listing.user.username,
             "Category": listing.category,
             "Date added": listing.date
         }
+    if not listing.is_active:
+        display = {"Winner": listing.highest_bid.bidder.username, **display}
+        
+    return render(request, "auctions/listing.html", {
+        "user": user,
+        "listing": listing,
+        "display": display
     })
 
 

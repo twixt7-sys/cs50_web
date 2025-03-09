@@ -109,11 +109,11 @@ header {
     #listing, #comment {
         @include card-template;
         #cardhead {
-            height: 220px;
+            height: 200px;
             #img-container {
                 display:flex;
                 flex: 1;
-                height: 140px;
+                height: 200px;
                 img {
                     height: 100%;
                     width: 100%;
@@ -126,6 +126,7 @@ header {
             }
         }
         #sub-contents {
+            height: 200px;
             width: 100%;
             display: flex;
             flex: 1;
