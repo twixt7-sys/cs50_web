@@ -10,5 +10,6 @@ urlpatterns = [
     path("create", v.create_listing, name="create"),
     path("listing/<int:listing_id>/", v.listing, name="listing"),
     path("watchlist", v.watchlist, name="watchlist"),
-    path("bid/<int:listing_id>/", v.bid, name="bid")
+    path("bid/<int:listing_id>/", v.bid, name="bid"),
+    path("categories", v.categories, name="categories")
 ]

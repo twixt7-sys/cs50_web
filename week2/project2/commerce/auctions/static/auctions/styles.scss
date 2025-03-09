@@ -145,7 +145,7 @@ header {
     }    
 }
 
-#create {
+#create, #categories {
     @include card-template;
     height: 80%;
     h3{

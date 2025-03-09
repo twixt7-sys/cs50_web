@@ -44,6 +44,17 @@
                             Active Listings
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="
+                        {% if request.resolver_match.url_name == 'categories' %}
+                            btn btn-outline-light
+                        {% else %}
+                            btn btn-outline-primary text-white font-weight-bold border-0
+                        {% endif %}"
+                        href="{% url 'categories'%}">
+                            Categories
+                        </a>
+                    </li>
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="

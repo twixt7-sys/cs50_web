@@ -185,3 +185,9 @@ def watchlist(request):
 
 def bid(request, listing_id):
     return render(request, "auctions/bid.html")
+
+def categories(request):
+    if request.method == "GET":
+        pass
+    return render(request, "auctions/categories.html")
+    
