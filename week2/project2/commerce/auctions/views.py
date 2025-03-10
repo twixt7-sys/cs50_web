@@ -64,6 +64,7 @@ def register(request):
     else:
         return render(request, "auctions/register.html")
 
+@login_required
 def create_listing(request):
     #using a dictionary for more dynamacity
     labels = ["name", "description", "start_bid", "image_url", "category"]
@@ -188,14 +189,16 @@ def bid(request, listing_id):
 
 def categories(request):
     query = request.GET.get('q', '').strip()
+    
     if query:
-        listings = Listing.objects.filter(category__icontains=query)
-        results = sorted(set(listing.category for listing in listings))  # Remove duplicates and sort
+        listings = Listing.objects.filter(category__icontains=query, is_active=True)
+        results = Listing.objects.filter(category__icontains=query).values_list("category", flat=True).distinct()
+    else:
+        listings = []
+        results = []
 
-        return render(request, "auctions/categories.html", {
-            "results": results,
-            "query": query
-        })
-    
-    return render(request, "auctions/categories.html")
-    
+    return render(request, "auctions/categories.html", {
+        "active_listings": listings,
+        "results": results,
+        "query": query
+    })
