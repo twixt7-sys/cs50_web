@@ -187,7 +187,15 @@ def bid(request, listing_id):
     return render(request, "auctions/bid.html")
 
 def categories(request):
-    if request.method == "GET":
-        pass
+    query = request.GET.get('q', '').strip()
+    if query:
+        listings = Listing.objects.filter(category__icontains=query)
+        results = sorted(set(listing.category for listing in listings))  # Remove duplicates and sort
+
+        return render(request, "auctions/categories.html", {
+            "results": results,
+            "query": query
+        })
+    
     return render(request, "auctions/categories.html")
     
