@@ -191,14 +191,11 @@ def categories(request):
     query = request.GET.get('q', '').strip()
     
     if query:
-        listings = Listing.objects.filter(category__icontains=query, is_active=True)
-        results = Listing.objects.filter(category__icontains=query).values_list("category", flat=True).distinct()
+        results = Listing.objects.filter(category__icontains=query).distinct()
     else:
-        listings = []
         results = []
 
     return render(request, "auctions/categories.html", {
-        "active_listings": listings,
         "results": results,
         "query": query
     })

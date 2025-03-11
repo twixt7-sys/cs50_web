@@ -19,40 +19,48 @@
 
         <div id="active-listings" class="w-100">
             <div class="row d-flex justify-content-center">
-                {% for listing in active_listings %}
+                {% for listing in results %}
                 <div class="col btn btn-light btn align-items-center flex-grow-0 rounded-4 m-3">
                     <a href="{% url 'listing' listing.id %}" class="card shadow-sm border-5 border-info border-opacity-50 rounded-4 bg-white bg-gradient">
-                        {% if user in listing.watchers.all %}
-                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-white border-4 rounded-circle">
-                                ⭐
+                        {% if listing in user.watchlist.all %}
+                            <span id="watchlist-badge" class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-white border-4 rounded-circle d-flex justify-content-center align-items-center z-3 bg-gradient">
+                                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                    viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" width="20" height="20">
+                                    <path fill="#ffffff" d="M63.714,30.516C63.347,29.594,54.448,8,31.999,8S0.651,29.594,0.284,30.516
+                                        c-0.379,0.953-0.379,2.016,0,2.969C0.651,34.406,9.55,56,31.999,56s31.348-21.594,31.715-22.516
+                                        C64.093,32.531,64.093,31.469,63.714,30.516z M31.999,40c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.417,40,31.999,40z"/>
+                                </svg>
                             </span>
                         {% endif %}
                         {% if listing.is_active %}
-                            <span class="badge text-bg-success m-2 rounded-5">Active</span>
+                            <span id="success-badge" class="badge text-bg-success m-2 z-0 rounded-5">Active</span>
                         {% else %}
-                            <span class="badge text-bg-danger m-2 rounded-5">Closed</span>
+                            <span id="success-badge" class="badge text-bg-danger m-2 z-0 rounded-5">Closed</span>
                         {% endif %}
-                        <div class="w-100">
+                        <div class="w-100 position-relative">
                             <img src="{{ listing.image_url }}" alt="{{ listing.name }}">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><strong>{{ listing.name }}</strong></h5>
+                            <h5 class="card-title"> <strong> {{listing.name}} </strong> </h5>
                             <p class="card-text">
-                                {{ listing.description }} <br>
+                                {{ listing.description }}
+                                <br>
                                 <strong>${{ listing.highest_bid.amount }}</strong>
                             </p>
                         </div>
                         <div class="card-footer text-muted p-3">
-                            <label>{{ listing.user.username }}</label> | <label>{{ listing.date }}</label>
+                            <div id="footer-components">
+                                <label>{{listing.user.username}}</label> |
+                                <label>{{listing.date}}</label>
+                            </div>
                         </div>
                     </a>
                 </div>
                 {% empty %}
-                <div class="alert alert-info" role="alert">
-                    No Active Listings Found
-                </div>
+                    <div class="alert alert-info" role="alert">
+                        No Active Listings
+                    </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
 {% endblock %}
