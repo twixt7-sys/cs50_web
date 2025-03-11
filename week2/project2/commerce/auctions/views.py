@@ -8,6 +8,7 @@ from decimal import Decimal
 from django.contrib import messages
 
 from .models import User, Listing, Bid, Comment
+from .forms import CategoryForm, CustomFormRenderer
 
 
 def index(request):
@@ -188,6 +189,8 @@ def bid(request, listing_id):
     return render(request, "auctions/bid.html")
 
 def categories(request):
+    form = CategoryForm().render(renderer=CustomFormRenderer())
+    
     query = request.GET.get('q', '').strip()
     
     if query:
@@ -196,6 +199,7 @@ def categories(request):
         results = []
 
     return render(request, "auctions/categories.html", {
+        "form": form,
         "results": results,
         "query": query
     })
