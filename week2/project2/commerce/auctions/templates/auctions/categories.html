@@ -7,16 +7,6 @@
                 <form method="GET" action="{% url 'categories' %}" id="categories" class="card shadow">
                     {% csrf_token %}
                     {{ form }}
-                    <input class="form-control" type="text" name="q" placeholder="Search for a category">
-                    <input type="submit" class="btn btn-primary" value="Search">
-
-                    <h3 class="text-secondary-emphasis">Enter a Category: </h3>
-                    <div class="form-group">
-                        
-                    </div>
-                    <div id="button-group">
-                        <a href="{% url 'categories' %}" class="btn btn-secondary">Reset</a>
-                    </div>
                 </form>
             </div>
         </main>

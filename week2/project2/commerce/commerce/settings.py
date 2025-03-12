@@ -1,6 +1,11 @@
 import os
 
-FORM_RENDERER = 'auctions.forms.CustomFormRenderer'  # Replace with actual path
+from django.forms.renderers import TemplatesSetting
+
+class CustomFormRenderer(TemplatesSetting):
+    form_template_name = "forms/custom_form.html"
+
+FORM_RENDERER = "django.forms.renderers.DjangoTemplates" 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
