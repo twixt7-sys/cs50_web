@@ -5,7 +5,7 @@ from .models import User, Listing, Bid, Comment
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ("username")
+    list_display = ("username", "email")
 
 class ListingAdmin(admin.ModelAdmin):
     list_display = ("name", "highest_bid")
@@ -23,6 +23,6 @@ models = (
     (Comment, CommentAdmin)
     )
 
-for model, display in enumerate(models):
+for model, display in models:
     admin.site.register(model, display)
 
