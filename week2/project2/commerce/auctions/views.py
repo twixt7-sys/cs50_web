@@ -190,9 +190,13 @@ def bid(request, listing_id):
 
 def categories(request):
     form = CategoryForm()
-    query = request.GET.get('q', '').strip()
     
-    results = Listing.objects.filter(category__icontains=query) if query else []
+    query = request.GET.get('category', '').strip()
+
+    if query:
+        results = Listing.objects.filter(category__icontains=query).distinct()
+    else:
+        results = []
 
     return render(request, "auctions/categories.html", {
         "form": form,
