@@ -3,6 +3,7 @@ from django.db import models as m
 from django.utils import timezone
 
 class User(AbstractUser):
+    #already has primary id
     watchlist = m.ManyToManyField("Listing", blank=True, related_name="watchers")
     #primary attributes: username, password, email, first_name, last_name
     def __str__(self):  #returns this string when printed
@@ -20,18 +21,16 @@ class Listing(m.Model):
     
     user = m.ForeignKey(User, on_delete=m.CASCADE, related_name="listings")
     
-    #Uses string if referenced from a class declared below the this clas
+    #Uses string as first argument if referenced from a class declared below this clas
     starting_bid = m.ForeignKey('Bid', null=True, blank=True, on_delete=m.SET_NULL, related_name="starting_for")  
     highest_bid = m.ForeignKey('Bid', null=True, blank=True, on_delete=m.SET_NULL, related_name="highest_for")
     
     def save(self, *args, **kwargs):
-        is_new = self.pk is None  # Check if the instance is new
-        super().save(*args, **kwargs)  # First save to get a primary key
-
-        if is_new and not self.starting_bid:
+        super().save(*args, **kwargs)
+        if not self.starting_bid:  
             default_bid = Bid.objects.create(amount=0, bidder=self.user, listing=self)
-            Listing.objects.filter(pk=self.pk).update(starting_bid=default_bid, highest_bid=default_bid)
-
+            self.starting_bid = self.highest_bid = default_bid
+            super().save(update_fields=['starting_bid', 'highest_bid'])
 
     def __str__(self):
         return self.name
