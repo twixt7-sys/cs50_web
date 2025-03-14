@@ -8,7 +8,7 @@ from decimal import Decimal
 from django.contrib import messages
 
 from .models import User, Listing, Bid, Comment
-from .forms import CategoryForm
+from .forms import CategoryForm, CreateForm
 
 
 def index(request):
@@ -67,7 +67,7 @@ def register(request):
 
 @login_required
 def create_listing(request):
-    #using a dictionary for more dynamacity
+    form = CreateForm()
     labels = ["name", "description", "start_bid", "image_url", "category"]
     data = [
         {
@@ -190,7 +190,6 @@ def bid(request, listing_id):
 
 def categories(request):
     form = CategoryForm()
-    
     query = request.GET.get('category', '').strip()
 
     if query:
