@@ -3,21 +3,9 @@
 {% block body %}
     <main>
         <div id="create">
-            <form method="POST" action="{% url 'create' %}" id="create" class="card shadow">
+            <form method="GET" action="{% url 'create' %}" id="categories" class="card shadow">
                 {% csrf_token %}
-                <h3 class="text-secondary-emphasis">Create a Listing: </h3>
-                {% with fields=data %}
-                    {% for field in fields %}
-                        <div class="form-group">
-                            <label>{{ field.label }}</label>
-                            <input class="form-control" type="{{ field.type }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}">
-                        </div>
-                    {% endfor %}
-                {% endwith %}
-                <div id="button-group">
-                    <button name="action" type="submit" value="save" class="btn btn-primary">Create Listing</button>
-                    <button name="action" type="submit" value="cancel" class="btn btn-secondary">Cancel</button>
-                </div>
+                {{ form }}
             </form>
         </div>
     </main>

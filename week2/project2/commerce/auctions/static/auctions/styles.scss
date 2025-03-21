@@ -147,6 +147,7 @@ header {
 
 #create, #categories {
     @include card-template;
+    background-color: white;
     height: 80%;
     h3{
         text-align: center;

@@ -1,0 +1,12 @@
+<form method="GET">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field }}
+            {% if field.help_text %}
+                <small>{{ field.help_text }}</small>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <button type="submit" name="action" class="btn btn-primary" value="enter"> Search </button>
+</form>
