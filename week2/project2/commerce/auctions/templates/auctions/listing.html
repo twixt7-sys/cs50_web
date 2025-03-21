@@ -113,13 +113,15 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <form id="comment-form" class="w-100 m-1" method="POST" action="{% url 'listing' listing.id %}">
-                        {% csrf_token %}
-                        <div id="comment-input" class="d-flex align-items-center w-100 p-2">
-                            <input name="comment" type="text" class="form-control me-2" placeholder="Comment here">
-                            <input name="action" type="submit" class="btn btn-primary" value="Comment">
-                        </div>
-                    </form>
+                    {% if user.is_authenticated %}
+                        <form id="comment-form" class="w-100 m-1" method="POST" action="{% url 'listing' listing.id %}">
+                            {% csrf_token %}
+                            <div id="comment-input" class="d-flex align-items-center w-100 p-2">
+                                <input name="comment" type="text" class="form-control me-2" placeholder="Comment here">
+                                <input name="action" type="submit" class="btn btn-primary" value="Comment">
+                            </div>
+                        </form>
+                    {% endif %}
                 </div>
             </div>
         </div>
