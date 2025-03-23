@@ -70,19 +70,28 @@ def create_listing(request):
     form = CreateForm(request.POST)
 
     if request.method != "POST" or not form.is_valid():
-        return render(request, "auctions/create.html", { "form": form })
+        return render(request, "auctions/create.html", {"form": form})
 
     action = request.POST.get("action")
 
     if action == "enter":
-        Listing.objects.create(
-                name = request.POST.get("name"),
-                description = request.POST.get("description"),
-                highest_bid = Bid.objects.create(amount=Decimal(request.POST.get("start_bid")), bidder=request.user),
-                image_url = request.POST.get("image_url"),
-                category = request.POST.get("category"),
-                user = request.user,
-                )
+        listing = Listing.objects.create(
+            name=request.POST.get("name"),
+            description=request.POST.get("description"),
+            image_url=request.POST.get("image_url"),
+            category=request.POST.get("category"),
+            user=request.user,
+        )
+
+        starting_bid = Bid.objects.create(
+            amount=Decimal(request.POST.get("start_bid")),
+            bidder=request.user,
+            listing=listing,
+        )
+
+        listing.highest_bid = starting_bid
+        listing.save(update_fields=["highest_bid"])
+
         return redirect("index")
 
 def listing(request, listing_id):
