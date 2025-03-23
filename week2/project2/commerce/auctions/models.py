@@ -24,16 +24,16 @@ class Listing(m.Model):
     
     user = m.ForeignKey(User, on_delete=m.CASCADE, related_name="listings")
     
-    highest_bid = m.OneToOneField("Bid", on_delete=m.SET_NULL, null=True, related_name="highest_bid")
+    highest_bid = m.ForeignKey("Bid", on_delete=m.SET_NULL, null=True, blank=True, related_name="highest_for")
 
     def save(self, *args, **kwargs):
         is_new = self.pk is None
         super().save(*args, **kwargs)
-        
+
         if is_new:
             default_bid = Bid.objects.create(amount=0, bidder=self.user, listing=self)
-            self.starting_bid = self.highest_bid = default_bid
-            super().save(update_fields=['starting_bid', 'highest_bid'])
+            self.highest_bid = default_bid
+            super().save(update_fields=['highest_bid'])
 
     def __str__(self):
         return self.name
