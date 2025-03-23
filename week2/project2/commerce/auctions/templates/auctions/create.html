@@ -3,7 +3,7 @@
 {% block body %}
     <main>
         <div id="create">
-            <form method="GET" action="{% url 'create' %}" id="categories" class="card shadow">
+            <form method="POST" action="{% url 'create' %}" id="categories" class="card shadow">
                 {% csrf_token %}
                 {{ form }}
             </form>

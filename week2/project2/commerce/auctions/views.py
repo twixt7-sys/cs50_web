@@ -76,16 +76,14 @@ def create_listing(request):
 
     if action == "enter":
         Listing.objects.create(
-                user = request.user,
                 name = request.POST.get("name"),
                 description = request.POST.get("description"),
+                highest_bid = Bid.objects.create(amount=Decimal(request.POST.get("start_bid")), bidder=request.user),
                 image_url = request.POST.get("image_url"),
                 category = request.POST.get("category"),
-            )
-        return render(request, "auctions/index.html", {
-            "message": "Listing created successfully.",
-            "form": form
-            })
+                user = request.user,
+                )
+        return redirect("index")
 
 def listing(request, listing_id):
     listing, user = get_object_or_404(Listing, id=listing_id), request.user
