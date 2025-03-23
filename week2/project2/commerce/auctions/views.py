@@ -117,7 +117,6 @@ def listing(request, listing_id):
         user.watchlist.add(listing)
     elif action == "Remove from Watchlist":
         user.watchlist.remove(listing)
-
     elif action == "Comment":
         comment_text = request.POST.get("comment")
         if comment_text:
@@ -127,7 +126,6 @@ def listing(request, listing_id):
                 listing=listing,
             )
         return redirect("listing", listing_id=listing_id)
-
     elif action == "Place Bid":
         bid_amount = float(request.POST.get("bid", 0))
         # message = (is_success, message) 
@@ -155,7 +153,8 @@ def listing(request, listing_id):
 
     if not listing.is_active:
         display = {"Winner": listing.highest_bid.bidder.username, **display}
-
+    
+    return redirect("listing", listing_id=listing_id)
 
 @login_required
 def watchlist(request):
